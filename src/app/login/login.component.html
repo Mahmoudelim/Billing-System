@@ -1,1 +1,13 @@
-<p>login works!</p>
+<!-- login.component.html -->
+<h2>Login Component</h2>
+<p>Enter your username and password to log in.</p>
+<form (submit)="login()">
+  <label>Username:</label>
+  <input placeholder="enter username" type="text">
+  <br>
+  <label>Password:</label>
+  <input placeholder="enter password"type="password">
+  <br>
+  <button type="submit">Log in</button>
+</form>
+

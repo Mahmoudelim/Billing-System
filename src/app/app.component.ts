@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from './user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -45,8 +46,13 @@ import { User } from './user';
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <br>
+    <button  [routerLink]="['/login']">Go to Login</button>
+    <router-outlet></router-outlet>
+
   </form>
 </div>
+
 `,
   styleUrls: ['./app.component.css']
 })
@@ -54,7 +60,7 @@ export class AppComponent {
 title = 'billingSystem';
 registrationForm!: FormGroup  ;
 
-constructor(private formBuilder: FormBuilder) { }
+constructor(private formBuilder: FormBuilder,private router: Router) { }
 
 ngOnInit(): void {
   this.registrationForm = this.formBuilder.group({
@@ -81,5 +87,6 @@ onSubmit(): void {
   console.log(user);
   // TODO: Save user data to database
 }
+
 
 }
