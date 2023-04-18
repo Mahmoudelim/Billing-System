@@ -1,38 +1,92 @@
-.container {
+/* app.component.css */
+
+/* app.component.css */
+
+header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 100vh;
-}
-
-.form-wrapper {
+  background-color: rgb(250,240,230,0.5);
+  color: darkgreen;
   padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 5px;
 }
 
-h1 {
+header h1 {
+  margin: 0;
+  color: darkgreen;
+}
+
+header button {
+  background-color: rgb(250,240,230,0.6);
+  color: darkgreen;
+  border: none;
+  font-size: 1.2rem;
+  padding: 10px 20px;
   text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+  float: right;
+
+}
+
+header button:hover {
+  background-color: rgb(245, 226, 208);
+  color: darkgreen;
+}
+
+
+
+
+.container {
+
+  width: 100%;
+  background-color:rgb(245, 226, 208) ;
+
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+h2 {
   margin-bottom: 20px;
 }
 
-button[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  color :darkgreen;
+
 }
 
-button[type="submit"]:hover {
-  background-color: #3e8e41;
+a {
+  background-color: rgb(250,240,230,0.3);
+  color: #fff;
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
 }
-input[type=text], input[type=email], input[type=tel], input[type=password] {
+
+a:hover {
+  background-color: rgb(250,240,230,1);
+
+}
+
+footer {
+  color: black;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
+  height: 3vh;
+  background-color: rgb(250,240,230,0.3);
+  text-align: center;
 }

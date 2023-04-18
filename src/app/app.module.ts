@@ -11,7 +11,9 @@ import { BillingService } from './billing.service';
 import { UserService } from './user.service';
 import { AuthenticationService } from './authentication.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms'; // Import the FormsModule
+import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component'; // Import the FormsModule
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { FormsModule } from '@angular/forms'; // Import the FormsModule
     AppComponent,
     LoginComponent,
     AdminDashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
