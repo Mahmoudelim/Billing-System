@@ -15,19 +15,21 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private router: Router,private appComponent: AppComponent) { }
 
   ngOnInit(): void {
-
     this.registrationForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      cardNumber: ['', Validators.required],
-      expirationDate: ['', Validators.required],
-      cvv: ['', Validators.required]
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)]],
+
+      cardNumber: ['', [Validators.required, Validators.minLength(16), Validators.maxLength(16), Validators.pattern('^[0-9]+$')]],
+      expirationDate: ['', [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/([0-9]{4}|[0-9]{2})$')]],
+      cvv: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(3), Validators.pattern('^[0-9]+$')]]
     });
   }
 
+
   onSubmit(): void {
+    if (this.registrationForm.valid){
     const user = new User(
       this.registrationForm.value.firstName,
       this.registrationForm.value.lastName,
@@ -38,6 +40,11 @@ export class RegisterComponent implements OnInit {
       this.registrationForm.value.cvv
     );
     console.log(user);
+    }
+    else if(!this.registrationForm.valid) {
+      console.log("data not valid")
+    }
+
     // TODO: Save user data to database
   }
 }
