@@ -13,7 +13,11 @@ import { AuthenticationService } from './authentication.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component'; // Import the FormsModule
+import { HomeComponent } from './home/home.component';
+import { ElectristyDataComponent } from './electristy-data/electristy-data.component';
+import { AdminToolbarComponent } from './admin-toolbar/admin-toolbar.component';
+import { WaterDataComponent } from './water-data/water-data.component';
+import { TelephoneDataComponent } from './telephone-data/telephone-data.component'; // Import the FormsModule
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { HomeComponent } from './home/home.component'; // Import the FormsModule
     AdminDashboardComponent,
     UserDashboardComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ElectristyDataComponent,
+    AdminToolbarComponent,
+    WaterDataComponent,
+    TelephoneDataComponent
   ],
   imports: [
     BrowserModule,

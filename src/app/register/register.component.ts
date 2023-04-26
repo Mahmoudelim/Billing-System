@@ -37,7 +37,14 @@ export class RegisterComponent implements OnInit {
       this.registrationForm.value.password,
       this.registrationForm.value.cardNumber,
       this.registrationForm.value.expirationDate,
-      this.registrationForm.value.cvv
+      this.registrationForm.value.cvv,
+      90,
+      80,
+      70,
+      new Date(10/5/2023),
+      new Date(10/5/2023),
+      new Date(10/5/2023),
+
     );
     console.log(user);
     }

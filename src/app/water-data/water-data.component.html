@@ -1,0 +1,26 @@
+<app-admin-toolbar></app-admin-toolbar>
+<h2>Water Data</h2>
+<div class="form-group">
+  <label for="unitCost">Unit Cost:</label>
+  <input type="number" id="unitCost" name="unitCost" [(ngModel)]="unitCost" class="form-control">
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Units Used</th>
+      <th>Cost</th>
+      <th>Deadline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.firstName }} {{ user.lastName }}</td>
+      <td>{{ user.waterUnitsUsed }}</td>
+      <td>{{ billingService.calculateCost(unitCost, user.waterUnitsUsed) | currency:'USD':'symbol':'1.2-2' }}</td>
+      <td><input placeholder="00/0/2023" type="date" [(ngModel)]="user.waterDeadline"></td>
+    </tr>
+  </tbody>
+</table>
+
