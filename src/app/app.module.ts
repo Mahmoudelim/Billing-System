@@ -18,7 +18,9 @@ import { ElectInvoiceComponent } from './elect-invoice/elect-invoice.component';
 import { ElectristyDataComponent } from './electristy-data/electristy-data.component';
 import { AdminToolbarComponent } from './admin-toolbar/admin-toolbar.component';
 import { WaterDataComponent } from './water-data/water-data.component';
-import { TelephoneDataComponent } from './telephone-data/telephone-data.component'; // Import the FormsModule
+import { TelephoneDataComponent } from './telephone-data/telephone-data.component';
+import { WaterInvoiceComponent } from './water-invoice/water-invoice.component';
+import { SlideshowComponent } from './slideshow/slideshow.component'; // Import the FormsModule
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { TelephoneDataComponent } from './telephone-data/telephone-data.componen
     ElectristyDataComponent,
     AdminToolbarComponent,
     WaterDataComponent,
-    TelephoneDataComponent
+    TelephoneDataComponent,
+    WaterInvoiceComponent,
+    SlideshowComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,48 @@
+<div class="slideshow-container">
+    <img *ngFor="let image of images" [src]="image" [class]="image === currentImage ? 'active' : ''">
+    <a class="prev" (click)="prevImage()">&#10094;</a>
+    <a class="next" (click)="nextImage()">&#10095;</a>
+</div>
+<div class="container">
+    <div class="box">
+        <img src="/assets/images/voda1.jpg" alt="Image ">
+        <h2>
+            2D Fixed
+        </h2>
+        <p>
+            Validity of top-up is 30 days.
+            Prices are tax exclusive.
+            
+        </p>
+        <p>
+
+        </p>
+        <button>Pay</button>
+      </div>
+      <div class="box">
+        <img src="/assets/images/voda2.jpg" alt="Image ">
+        <h2>
+            2D Fixed
+        </h2>
+        <p>
+            Validity of top-up is 30 days.
+            Prices are tax exclusive.
+            
+        </p>
+        <button>Pay</button>
+        
+      </div>
+      <div class="box">
+        <img src="/assets/images/orange.jpg" alt="Image ">
+        <h2>
+            2D Fixed
+        </h2>
+        <p>
+            Validity of top-up is 30 days.
+            Prices are tax exclusive.
+            
+        </p>
+        <button>pay</button>
+        
+      </div>
+</div>

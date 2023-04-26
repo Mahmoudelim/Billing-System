@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-elect-invoice',
-  templateUrl: './elect-invoice.component.html',
-  styleUrls: ['./elect-invoice.component.css']
+  selector: 'app-water-invoice',
+  templateUrl: './water-invoice.component.html',
+  styleUrls: ['./water-invoice.component.css']
 })
-export class ElectInvoiceComponent {
+export class WaterInvoiceComponent {
   data: any[] = [
     { month: 'jan', cost:50},
     { month: 'fab', cost: 250},
