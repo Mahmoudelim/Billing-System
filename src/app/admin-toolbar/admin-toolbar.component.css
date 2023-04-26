@@ -1,0 +1,22 @@
+.navbar {
+  display: contents;
+  justify-content: center;
+  background-color: seashell;
+  padding: 15px;
+}
+
+.navbar button {
+  margin: 0 10px;
+  height: 100%;
+  background-color: inherit;
+  border: none;
+  padding: 20px;
+  color: darkgreen;
+  text-size: 20px;
+}
+
+.navbar button:hover {
+  background-color: azure;
+  color: darkgreen;
+  padding: 20px;
+}
