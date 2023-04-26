@@ -13,7 +13,8 @@ import { AuthenticationService } from './authentication.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component'; // Import the FormsModule
+import { HomeComponent } from './home/home.component';
+import { ElectInvoiceComponent } from './elect-invoice/elect-invoice.component'; // Import the FormsModule
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HomeComponent } from './home/home.component'; // Import the FormsModule
     AdminDashboardComponent,
     UserDashboardComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ElectInvoiceComponent
   ],
   imports: [
     BrowserModule,
