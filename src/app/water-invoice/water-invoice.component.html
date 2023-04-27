@@ -1,42 +1,49 @@
 <body>
-    <div class="container">
-        <div class="box">
-          <i class="fa fa-envelope"></i>
-          <img src="/assets/images/logout.png" alt="Image ">    
-          <h4>Total Unit Used</h4>
-               
-          <p>15K</p>
-        </div>
-        <div class="box">
-          <i class="fa fa-phone"></i>
-          <img src="/assets/images/logout.png" alt="Image ">    
-          <h4>Total Cost</h4>
-          <p>15$</p>
-        </div>
-        <div class="box">
-            <i class="fa fa-phone"></i>
-                      <!-- will modify soon -->
-
-            <img src="/assets/images/logout.png" alt="Image ">  
-            <h4>Deadline</h4>
-            <p>15/10/2023</p>
-          </div>
+  <app-navbar></app-navbar>
+  <div class="container">
+      <div class="box">
+        <i class="fa fa-envelope"></i>
+        <img src="/assets/images/logout.png" alt="Image ">    
+        <h4>Total Unit Used</h4>
+             
+        <label for="unitused">Unit Used:</label>
+      <input type="number" id="unitused" name="unitused" [(ngModel)]="unitused" class="form-control" >
       </div>
-      
-      <table class="my-table">
-        <thead>
-          <tr>
-            <th>Month</th>
-            <th>Cost</th>
-            <th>Action </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of data">
-            <td>{{item.month}}</td>
-            <td>{{item.cost}} $</td>
-            <td><button>Pay</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </body>
+      <div class="box">
+        <i class="fa fa-phone"></i>
+        <img src="/assets/images/logout.png" alt="Image ">    
+        <h4>Total Cost</h4>
+        <p >{{ billingService.cost(unitused) | currency:'USD':'symbol':'1.2-2' }}</p>
+      </div>
+      <div class="box">
+          <i class="fa fa-phone"></i>
+                    <!-- will modify soon -->
+
+          <img src="/assets/images/logout.png" alt="Image ">  
+          <h4>Deadline</h4>
+          <p>15/10/2023</p>
+        </div>
+    </div>
+    
+    <table class="my-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Cost</th>
+          <th>Action </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td>{{item.month}}</td>
+          <td>{{item.cost}} $</td>
+          <td><button (click)="goToPayment()">Pay</button></td>
+        </tr>
+        <tr>
+          <td>Last Month</td>
+          <td> {{ billingService.cost(unitused) | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td><button (click)="goToPayment()">Pay</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>

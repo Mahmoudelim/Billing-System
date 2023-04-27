@@ -1,85 +1,101 @@
 
 .container {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .box {
-    width: 20%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+}
 
-  }
-  
-  .box i {
-    font-size: 48px;
-    margin-bottom: 20px;
-  }
-  
-  .box h4 {
-    margin-top: 0;
-  }
-  
-  .box p {
-    margin-bottom: 10px;
-  }
-  .box img{
-    width:15% ;
-    height: 30%;
+.box {
+  width: 20%;
+  border-radius: 5px;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 100px;
+  background-color: #f5f5f5;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
 
-  }
-  
-  .box a {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  .box i {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #007bff; /* Set the icon color */
-  }
-  
-  .my-table {
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 800px; /* Set a maximum width for the table */
-    margin: 0 auto; /* Center the table horizontally */
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    margin-top: 200px;
-  }
-  
-  .my-table th,
-  .my-table td {
-    padding: 12px;
-    text-align: center;
-    border: 1px solid #ccc;
-  }
-  
-  .my-table th {
+
+}
+
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+.box input{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.box input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+
+.box h4 {
+  margin-top: 0;
+}
+
+.box p {
+  margin-bottom: 10px;
+}
+.box img{
+  width:15% ;
+  height: 30%;
+
+}
+
+.box a {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.box i {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #007bff; /* Set the icon color */
+}
+
+.my-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px; 
+  margin: 0 auto; /* Center the table horizontally */
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin-top: 200px;
+}
+
+.my-table th,
+.my-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.my-table th {
 color: #fff;
-    background-color: #04c26d;
-  }
-  
- 
-  .my-table td button {
-    background-color: #04c26d;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    align-items: center;
-  }
-  tr:hover {
-    background-color: #ddd;
-  }
-  
+  background-color: #04c26d;
+}
+
+
+.my-table td button {
+  background-color: #04c26d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  align-items: center;
+}
+tr:hover {
+  background-color: #ddd;
+}

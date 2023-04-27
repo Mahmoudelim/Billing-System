@@ -34,23 +34,26 @@ h2 {
 }
 
 .table {
-  width: 100%;
-  margin-bottom: 1rem;
-  background-color: transparent;
   border-collapse: collapse;
+  width: 100%;
+  max-width: 800px; 
+  margin: 0 auto; /* Center the table horizontally */
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin-top: 200px;
 }
 
 .table th,
 .table td {
-  padding: 0.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ccc;
 
 }
 
 .table thead th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
+  color: #fff;
+  background-color: #04c26d;
 }
 
 .table tbody + tbody {

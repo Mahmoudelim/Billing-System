@@ -20,7 +20,10 @@ import { AdminToolbarComponent } from './admin-toolbar/admin-toolbar.component';
 import { WaterDataComponent } from './water-data/water-data.component';
 import { TelephoneDataComponent } from './telephone-data/telephone-data.component';
 import { WaterInvoiceComponent } from './water-invoice/water-invoice.component';
-import { SlideshowComponent } from './slideshow/slideshow.component'; // Import the FormsModule
+import { SlideshowComponent } from './slideshow/slideshow.component';
+import { PaymentComponent } from './payment/payment.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PhoneInvoiceComponent } from './phone-invoice/phone-invoice.component'; // Import the FormsModule
 
 
 @NgModule({
@@ -37,7 +40,10 @@ import { SlideshowComponent } from './slideshow/slideshow.component'; // Import 
     WaterDataComponent,
     TelephoneDataComponent,
     WaterInvoiceComponent,
-    SlideshowComponent
+    SlideshowComponent,
+    PaymentComponent,
+    NavbarComponent,
+    PhoneInvoiceComponent
   ],
   imports: [
     BrowserModule,

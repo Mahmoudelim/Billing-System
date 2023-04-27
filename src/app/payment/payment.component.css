@@ -1,0 +1,70 @@
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  padding-top: 100px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  align-items: center;
+  margin-bottom: 10px;
+
+}
+
+button[type="submit"] {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+  margin-left: 200px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+#cardholder-name {
+  text-transform: uppercase;
+}
+
+#card-number {
+  letter-spacing: 4px;
+}
+
+#expiration-date,
+#cvv-code {
+  width: 100%;
+  display: inline-block;
+}
+
+
+
+@media (max-width: 768px) {
+  #expiration-date,
+  #cvv-code {
+    width: 100%;
+    margin-left: 0;
+  }
+}

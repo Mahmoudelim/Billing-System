@@ -11,6 +11,8 @@ import { ElectInvoiceComponent } from './elect-invoice/elect-invoice.component';
 import { WaterInvoiceComponent } from './water-invoice/water-invoice.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PhoneInvoiceComponent } from './phone-invoice/phone-invoice.component';
 const routes: Routes = [
 { path:'', component: HomeComponent },
  { path: 'login', component: LoginComponent },
@@ -22,7 +24,9 @@ const routes: Routes = [
  {path:'toAdminElectericity',component:ElectristyDataComponent},
  {path:'toAdminDashboard',component:AdminDashboardComponent},
  {path:'toAdminWater',component:WaterDataComponent},
- {path:'toAdminTelephone',component:TelephoneDataComponent}
+ {path:'toAdminTelephone',component:TelephoneDataComponent},
+ {path:'pay',component:PaymentComponent},
+ {path:'phone',component:PhoneInvoiceComponent}
 ];
 
 @NgModule({
