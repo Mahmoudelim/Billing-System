@@ -1,74 +1,18 @@
 <div class="container">
-  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-    <div class="row">
-      <div class="col-md-6">
-        <h3>Personal Information</h3>
-
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" class="form-control" placeholder="Enter your first name" formControlName="firstName" required>
-          <div *ngIf="registrationForm.get('firstName')?.invalid && (registrationForm.get('firstName')?.dirty || registrationForm.get('firstName')?.touched)">
-            <div *ngIf="registrationForm.get('firstName')?.errors?.['required']">First Name is required</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" class="form-control" placeholder="Enter your second name" formControlName="lastName" required>
-          <div *ngIf="registrationForm.get('lastName')?.invalid && (registrationForm.get('lastName')?.dirty || registrationForm.get('lastName')?.touched)">
-            <div *ngIf="registrationForm.get('lastName')?.errors?.['required']">Last Name is required</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" placeholder="Enter your email" formControlName="email" required>
-          <div *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)">
-            <div *ngIf="registrationForm?.get('email')?.errors?.['required']">Email is required</div>
-            <div *ngIf="registrationForm.get('email')?.errors?.['email']">Invalid email format</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" placeholder="Enter your password" formControlName="password" required>
-          <div *ngIf="registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)">
-            <div *ngIf="registrationForm.get('password')?.errors?.['required']">Password is required</div>
-            <div *ngIf="registrationForm.get('password')?.errors?.['pattern']">Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character</div>
-          </div>
-        </div>
-
-        <h3>Billing Information</h3>
-
-        <div class="form-group">
-          <label for="cardNumber">Card Number</label>
-          <input type="text" class="form-control" placeholder="Enter your card number" formControlName="cardNumber" required>
-          <div *ngIf="registrationForm.get('cardNumber')?.invalid && (registrationForm.get('cardNumber')?.dirty || registrationForm.get('cardNumber')?.touched)">
-            <div *ngIf="registrationForm.get('cardNumber')?.errors?.['required']">Card Number is required</div>
-            <div *ngIf="registrationForm.get('cardNumber')?.errors?.['minlength']">Card Number must be at least 16 digits</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="expirationDate">Expiration Date</label>
-          <input type="text" class="form-control" placeholder="Enter your Expiration Date" formControlName="expirationDate" required>
-          <div *ngIf="registrationForm.get('expirationDate')?.invalid && (registrationForm.get('expirationDate')?.dirty || registrationForm.get('expirationDate')?.touched)">
-            <div *ngIf="registrationForm.get('expirationDate')?.errors?.['required']">Expiration Date is required</div>
-            <div *ngIf="registrationForm.get('expirationDate')?.errors?.['pattern']">Invalid expiration date format</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="cvv">CVV</label>
-          <input type="text" class="form-control" placeholder="Enter your CVV" formControlName="cvv" required pattern="[0-9]{3}">
-          <div *ngIf="registrationForm.get('cvv')?.invalid && (registrationForm.get('cvv')?.dirty || registrationForm.get('cvv')?.touched)">
-            <div *ngIf="registrationForm.get('cvv')?.errors?.['required']">CVV is required</div>
-            <div *ngIf="registrationForm.get('cvv')?.errors?.['pattern']">CVV must be a 3-digit number</div>
-          </div>
-        </div>
-
-      </div>
+  <h1 class="text-dark text-muted">Register</h1>
+  <form >
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" [(ngModel)]="email">
     </div>
-    <button type="submit" >Submit</button>
-
+    <div class="form-group">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="password">
+    </div>
+    <button type="button" class="btn btn-info" (click)="register()">Register</button>
   </form>
+  <div class="links">
+    
+    <a href="/login" style="text-decoration: none;">Have an account ? <span class="text-danger">Login</span></a>
+  </div>
 </div>

@@ -13,6 +13,8 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PhoneInvoiceComponent } from './phone-invoice/phone-invoice.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { VarifyEmailComponent } from './varify-email/varify-email.component';
 const routes: Routes = [
 { path:'', component: HomeComponent },
  { path: 'login', component: LoginComponent },
@@ -26,7 +28,10 @@ const routes: Routes = [
  {path:'toAdminWater',component:WaterDataComponent},
  {path:'toAdminTelephone',component:TelephoneDataComponent},
  {path:'pay',component:PaymentComponent},
- {path:'phone',component:PhoneInvoiceComponent}
+ {path:'phone',component:PhoneInvoiceComponent},
+ {path: 'forgot-password', component : ForgotPasswordComponent},
+ {path:'varify-email',component:VarifyEmailComponent}
+
 ];
 
 @NgModule({

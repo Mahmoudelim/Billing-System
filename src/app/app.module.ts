@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {AngularFireModule} from '@angular/fire/compat';
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -23,8 +24,9 @@ import { WaterInvoiceComponent } from './water-invoice/water-invoice.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { PaymentComponent } from './payment/payment.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { PhoneInvoiceComponent } from './phone-invoice/phone-invoice.component'; // Import the FormsModule
-
+import { PhoneInvoiceComponent } from './phone-invoice/phone-invoice.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { VarifyEmailComponent } from './varify-email/varify-email.component'; // Import the FormsModule
 
 @NgModule({
   declarations: [
@@ -43,13 +45,23 @@ import { PhoneInvoiceComponent } from './phone-invoice/phone-invoice.component';
     SlideshowComponent,
     PaymentComponent,
     NavbarComponent,
-    PhoneInvoiceComponent
+    PhoneInvoiceComponent,
+    ForgotPasswordComponent,
+    VarifyEmailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp({apiKey: "AIzaSyBoAwMaQlIt0NNvbnORvPRkUzeSsQb6fkQ",
+    authDomain: "billing-system-58bed.firebaseapp.com",
+    projectId: "billing-system-58bed",
+    storageBucket: "billing-system-58bed.appspot.com",
+    messagingSenderId: "94761470348",
+    appId: "1:94761470348:web:fa04475b723003e3f86ea9",
+    measurementId: "G-MM7G0TFPRC"})
+    
   ],
   providers: [PaymentService,BillingService,UserService,AuthenticationService],
   bootstrap: [AppComponent]

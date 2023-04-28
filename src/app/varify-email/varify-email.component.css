@@ -1,0 +1,15 @@
+.container-fluid{
+    max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  
+}
+h4{
+    margin-top: 50px;
+    font-size: large;
+    text-align: center;
+  }
+  p{
+    font-size: large;
+    text-align: center;
+  }
