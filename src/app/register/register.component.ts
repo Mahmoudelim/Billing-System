@@ -1,23 +1,33 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../user';
-import { Router } from '@angular/router';
-import { AppComponent } from '../app.component';
 import { AuthenticationService } from '../authentication.service';
+import('firebase/database');
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  issignedin=false;
   email : string = '';
   password : string = '';
+  formData = {
+    
+    email: '',
+    password: ''
+  };
+  constructor(private auth : AuthenticationService,private db:AngularFireDatabase,private firestore: AngularFirestore) {
 
-  constructor(private auth : AuthenticationService) { }
-
-  ngOnInit(): void {
+   }
+   submitForm() {
+    this.firestore.collection('users').add(this.formData);
+    this.formData = {  email: '', password: '' };
   }
+
+  
 
   register() {
 
@@ -37,4 +47,24 @@ export class RegisterComponent implements OnInit {
     this.password = '';
 
   }
+  signInWithGoogle() {
+    this.auth.googleSignIn();
+  }
+  ngOnInit(){
+    if(localStorage.getItem('User')!==null){
+      this.issignedin=true;
+      
+    }
+    else{
+      this.issignedin=false;
+    }
+  }
+  async onsignup(email:string,password:string){
+     this.auth.register(email,password)
+    if(this.auth.isloggein){
+      this.issignedin=true;
+    }
+  }
+  
+ 
 }

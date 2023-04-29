@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-water-invoice',
-  templateUrl: './water-invoice.component.html',
+  templateUrl:'./water-invoice.component.html',
   styleUrls: ['./water-invoice.component.css']
 })
 export class WaterInvoiceComponent {

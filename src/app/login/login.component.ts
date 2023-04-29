@@ -2,20 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { AuthenticationService } from '../authentication.service';
 import { Route } from '@angular/router';
+import { LoadingDialogComponent } from '../loading-dialog/loading-dialog.component';
+
 @Component({
   selector: 'app-login',
   templateUrl:'./login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  issignedin=false;
 
   email : string = '';
   password : string = '';
 
   constructor(private auth : AuthenticationService) { }
 
-  ngOnInit(): void {
-  }
+  
 
   login() {
 
@@ -37,6 +39,22 @@ export class LoginComponent implements OnInit {
   signInWithGoogle() {
     this.auth.googleSignIn();
   }
-
+  ngOnInit(){
+    if(localStorage.getItem('User')!==null){
+      this.issignedin=true;
+      
+    }
+    else{
+      this.issignedin=false;
+    }
+  }
+  
+  async onsignin(email:string,password:string){
+    await this.auth.register(email,password)
+    if(this.auth.isloggein){
+      this.issignedin=true;
+    }
+  }
+  
   
 }

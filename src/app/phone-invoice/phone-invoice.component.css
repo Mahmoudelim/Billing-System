@@ -38,6 +38,34 @@
       height: 15%;
   
     }
-   
+    .tabs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .tabs ul {
+      display: flex;
+      list-style: none;
+      margin: 5px;
+      padding: 5px;
+      font-size: large;
+    }
+    
+    .tabs li {
+      cursor: pointer;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      width: 300px;
+background-color: rgb(208, 228, 208);
+      
+    }
+    
+    .tabs li.active {
+      background-color: #007bff;
+      color: #fff;
+    }
     
   

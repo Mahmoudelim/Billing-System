@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { GoogleAuthProvider} from '@angular/fire/auth'
+import { GoogleAuthProvider} from '@angular/fire/auth';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  isloggein=false;
   constructor(private fireauth : AngularFireAuth, private router : Router) { }
   login(email : string, password : string) {
     this.fireauth.signInWithEmailAndPassword(email,password).then( res => {
-        localStorage.setItem('token','true');
+      this.isloggein=true;
+        localStorage.setItem('User',JSON.stringify(res.user));
 
         if(res.user?.emailVerified == true) {
           this.router.navigate(['userhome']);
@@ -27,8 +30,10 @@ export class AuthenticationService {
   // register method
   register(email : string, password : string) {
     this.fireauth.createUserWithEmailAndPassword(email, password).then( res => {
+      localStorage.setItem('User',JSON.stringify(res.user));
       alert('Registration Successful');
       this.sendEmailForVarification(res.user);
+      this.isloggein=true;
       this.router.navigate(['/login']);
     }, err => {
       alert(err.message);

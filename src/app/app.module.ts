@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AngularFireModule} from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -27,7 +27,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PhoneInvoiceComponent } from './phone-invoice/phone-invoice.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VarifyEmailComponent } from './varify-email/varify-email.component'; // Import the FormsModule
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 
+import { environment } from 'src/environments/environment.development';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { LoadingDialogComponent } from './loading-dialog/loading-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +51,8 @@ import { VarifyEmailComponent } from './varify-email/varify-email.component'; //
     NavbarComponent,
     PhoneInvoiceComponent,
     ForgotPasswordComponent,
-    VarifyEmailComponent
+    VarifyEmailComponent,
+    LoadingDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,9 @@ import { VarifyEmailComponent } from './varify-email/varify-email.component'; //
     storageBucket: "billing-system-58bed.appspot.com",
     messagingSenderId: "94761470348",
     appId: "1:94761470348:web:fa04475b723003e3f86ea9",
-    measurementId: "G-MM7G0TFPRC"})
+    measurementId: "G-MM7G0TFPRC"}),AngularFireDatabaseModule,
+    AngularFirestoreModule //firestore
+
     
   ],
   providers: [PaymentService,BillingService,UserService,AuthenticationService],

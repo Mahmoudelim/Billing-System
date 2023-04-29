@@ -34,3 +34,26 @@ nav {
   a:hover {
     color: #ddd;
   }
+  .nav-button {
+    position:relative;
+    justify-content: end;
+    margin-left: 1590px;
+  }
+  
+  .nav-button a {
+    display: block;
+    padding: 10px 20px;
+    background-color: green;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .nav-button a:hover {
+    background-color: #0062cc;
+  }
+  
+  .nav-button a:before {
+   
+    font-weight: 500;
+    margin-right: 5px;
+  }

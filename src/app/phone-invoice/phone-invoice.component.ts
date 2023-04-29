@@ -8,6 +8,11 @@ import { Router } from '@angular/router';
 })
 export class PhoneInvoiceComponent {
   constructor(private router: Router){}
+  activeTab = 'prepaid';
+
+  setActiveTab(tab: string) {
+    this.activeTab = tab;
+  }
   goToPayment() {
     this.router.navigate(['/pay']);
 

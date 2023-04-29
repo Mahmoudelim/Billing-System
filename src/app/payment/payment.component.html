@@ -1,5 +1,10 @@
 <form>
+  <h2>Payment Invoice</h2>
   <div class="form-group">
+<p><strong>Payment ID:</strong> {{ paymentDetails.id }}</p>
+<p><strong>Name:</strong> {{ paymentDetails.name }}</p>
+<p><strong>Amount:</strong> {{ paymentDetails.amount }}</p>
+<p><strong>Date:</strong> {{ paymentDetails.date }}</p>
     <label for="cardholder-name">Cardholder Name:</label>
     <input type="text" id="cardholder-name" name="cardholderName" required>
   
@@ -15,3 +20,5 @@
   <button type="submit">Pay Now</button>
   
 </form>
+
+

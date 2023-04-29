@@ -1,15 +1,15 @@
-<header>
+<nav *ngIf="!issignedin">
   <h1>Billing System</h1>
   <div class="left-buttons">
     <button  routerLink="/login">Login</button>
     <button  routerLink="/register">Register</button>
-    <button  routerLink="/toAdminWater">s</button>
-    <button  routerLink="/varify-email">user</button>
+    <button  routerLink="/phone">s</button>
+    <button  routerLink="/pay">user</button>
 
 
 
   </div>
-</header>
+</nav>
 <body class="body">
     <router-outlet>
     </router-outlet>

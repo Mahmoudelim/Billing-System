@@ -1,44 +1,92 @@
 <div><app-navbar></app-navbar></div>
 <app-slideshow></app-slideshow>
-<div class="container">
-    <div class="box">
-        <img src="/assets/images/voda1.jpg" alt="Image ">
-        <h2>
-            2D Fixed
-        </h2>
-        <p>
-            Validity of top-up is 30 days.
-            Prices are tax exclusive.
-            
-        </p>
-        <p>
 
-        </p>
-        <button (click)="goToPayment()">pay</button>   
-       </div>
-      <div class="box">
-        <img src="/assets/images/voda2.jpg" alt="Image ">
-        <h2>
-            3X Fixed
-        </h2>
-        <p>
-            250 EGP                     
-            1,000 EGP                    
-            
-        </p>
-        <button (click)="goToPayment()">pay</button>        
-      </div>
-      <div class="box">
-        <img src="/assets/images/orange.jpg" alt="Image ">
-        <h2>
-            2D Fixed
-        </h2>
-        <p>
-            You have up to 5 GB for 5 pounds with additional Free Max packages
 
+<div class="tabs">
+    <ul>
+      <li [class.active]="activeTab === 'prepaid'" (click)="setActiveTab('prepaid')">Prepaid</li>
+      <li [class.active]="activeTab === 'postpaid'" (click)="setActiveTab('postpaid')">Postpaid</li>
+    </ul>
+  </div>
+  
+  <div class="tab-content">
+    <div *ngIf="activeTab === 'prepaid'">
+      <!-- Prepaid plan content -->
+      <div class="container">
+        <div class="box">
+            <img src="/assets/images/voda1.jpg" alt="Image ">
+            <h2>
+                2D Fixed
+            </h2>
+            <p>
+                Validity of top-up is 30 days.
+                Prices are tax exclusive.
+                
+            </p>
+            <p>
+    
+            </p>
+            <button (click)="goToPayment()">pay</button>   
+           </div>
+          <div class="box">
+            <img src="/assets/images/voda2.jpg" alt="Image ">
+            <h2>
+                3X Fixed
+            </h2>
+            <p>
+                250 EGP                     
+                1,000 EGP                    
+                
+            </p>
+            <button (click)="goToPayment()">pay</button>        
+          </div>
+          <div class="box">
+            <img src="/assets/images/orange.jpg" alt="Image ">
+            <h2>
+                2D Fixed
+            </h2>
+            <p>
+                You have up to 5 GB for 5 pounds with additional Free Max packages
+    
+                
+            </p>
+            <button (click)="goToPayment()">pay</button>
             
-        </p>
-        <button (click)="goToPayment()">pay</button>
-        
+        </div>
     </div>
-</div>
+    </div>
+    <div *ngIf="activeTab === 'postpaid'">
+      <!-- Postpaid plan content -->
+      <div class="container">
+        <div class="box">
+            <img src="/assets/images/voda1.jpg" alt="Image ">
+            <h2>
+                2D Fixed
+            </h2>
+            <p>
+                Validity of top-up is 30 days.
+                Prices are tax exclusive.
+                
+            </p>
+            <p>
+    
+            </p>
+            <button (click)="goToPayment()">pay</button>   
+           </div>
+          
+          <div class="box">
+            <img src="/assets/images/orange.jpg" alt="Image ">
+            <h2>
+                2D Fixed
+            </h2>
+            <p>
+                You have up to 5 GB for 5 pounds with additional Free Max packages
+    
+                
+            </p>
+            <button (click)="goToPayment()">pay</button>
+            
+        </div>
+    </div>
+    </div>
+  </div>

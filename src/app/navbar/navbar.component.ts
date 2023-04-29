@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {  EventEmitter, Output } from '@angular/core';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
+  
+  @Output() islogeout =new EventEmitter<void>() 
+  issignedin=true;
+constructor(public Auth:AuthenticationService){}
+  logout()
+  {
+    this.Auth.logout();
+    this.islogeout.emit();
+  }
+  handlelogout(){
+    this.issignedin=false;
+  }
 }
