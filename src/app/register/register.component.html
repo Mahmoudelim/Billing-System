@@ -2,12 +2,20 @@
   <h1 class="text-dark text-muted">Register</h1>
   <form (ngSubmit)="submitForm()" >
     <div class="form-group">
+    <label for="exampleInputUsername1" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username" >
+    </div>
+    <div class="form-group">
       <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="email" [(ngModel)]="email" [(ngModel)]="formData.email">
+       <input type="email" class="form-control" name="email" [(ngModel)]="email" [(ngModel)]="formData.email">
     </div>
     <div class="form-group"  >
       <label for="exampleInputPassword1" class="form-label">Password</label>
       <input type="password" class="form-control" name="password" [(ngModel)]="password" [(ngModel)]="formData.password">
+    </div>
+    <div class="form-group"  >
+      <label for="exampleInputphone1" class="form-label">phonenumber</label>
+      <input type="number" class="form-control" name="phone" >
     </div>
     <button type="button" class="btn btn-info" (click)="register()">Register</button>
   </form>

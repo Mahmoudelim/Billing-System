@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   issignedin=false;
   email : string = '';
   password : string = '';
+  username:string='';
   formData = {
     
     email: '',
