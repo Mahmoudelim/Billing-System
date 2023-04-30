@@ -32,6 +32,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from 'src/environments/environment.development';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { LoadingDialogComponent } from './loading-dialog/loading-dialog.component';
+import { SignupComponent } from './signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { LoadingDialogComponent } from './loading-dialog/loading-dialog.componen
     PhoneInvoiceComponent,
     ForgotPasswordComponent,
     VarifyEmailComponent,
-    LoadingDialogComponent
+    LoadingDialogComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

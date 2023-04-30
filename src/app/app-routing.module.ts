@@ -15,10 +15,11 @@ import { PaymentComponent } from './payment/payment.component';
 import { PhoneInvoiceComponent } from './phone-invoice/phone-invoice.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VarifyEmailComponent } from './varify-email/varify-email.component';
+import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
 { path:'', component: HomeComponent },
  { path: 'login', component: LoginComponent },
- { path: 'register', component: RegisterComponent },
+ { path: 'register', component: SignupComponent },
  { path: 'elect', component: ElectInvoiceComponent },
  { path: 'water', component: WaterInvoiceComponent },
  { path: 'slide', component: SlideshowComponent },
