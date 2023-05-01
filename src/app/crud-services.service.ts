@@ -7,11 +7,15 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 export class CrudServicesService {
 
  private usersRef = this.db.list('users');
+ private adminsRef = this.db.list('admins');
 
 
   constructor(private db: AngularFireDatabase) { }
 
   getUsersRef() {
     return this.usersRef;
+  }
+  getadminsRef() {
+    return this.adminsRef;
   }
 }

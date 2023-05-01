@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -16,6 +16,9 @@ import { PhoneInvoiceComponent } from './phone-invoice/phone-invoice.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VarifyEmailComponent } from './varify-email/varify-email.component';
 import { SignupComponent } from './signup/signup.component';
+import { AdminsignupComponent } from './Admin/adminsignup/adminsignup.component';
+import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
+import { AddOfferComponent } from './SP/add-offer/add-offer.component';
 const routes: Routes = [
 { path:'', component: HomeComponent },
  { path: 'login', component: LoginComponent },
@@ -31,8 +34,10 @@ const routes: Routes = [
  {path:'pay',component:PaymentComponent},
  {path:'phone',component:PhoneInvoiceComponent},
  {path: 'forgot-password', component : ForgotPasswordComponent},
- {path:'varify-email',component:VarifyEmailComponent}
-
+ {path:'varify-email',component:VarifyEmailComponent},
+{path:'adminsignup',component:AdminsignupComponent},
+{path:'adminlogin',component:AdminloginComponent},
+{path:'addsp',component:AddOfferComponent}
 ];
 
 @NgModule({

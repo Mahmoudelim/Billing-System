@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../user';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
+import { AuthenticationService } from '../authentication.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -12,8 +13,9 @@ import { AppComponent } from '../app.component';
 })
 export class SignupComponent {
   registrationForm!: FormGroup  ;
+  issignedin=false;
 
-  constructor(private formBuilder: FormBuilder,private router: Router,private appComponent: AppComponent,private UserService:UserService) { }
+  constructor(private formBuilder: FormBuilder,private router: Router,public auth:AuthenticationService,private appComponent: AppComponent,private UserService:UserService) { }
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
@@ -26,7 +28,14 @@ export class SignupComponent {
       expirationDate: ['', [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/([0-9]{4}|[0-9]{2})$')]],
       cvv: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(3), Validators.pattern('^[0-9]+$')]]
     });
+    if(localStorage.getItem('User')!==null){
+      this.issignedin=true;
+    }
+    else{
+      this.issignedin=false;
+    }
   }
+  
 
 
   onSubmit(): void {
@@ -47,15 +56,16 @@ export class SignupComponent {
       new Date(10/5/2023),
 
     );
+    this.auth.register(this.registrationForm.value.email,this.registrationForm.value.password);  
     console.log(user);
     this.UserService.addUser(user);
-
+    if(this.auth.isloggein){
+      this.issignedin=true;
+    }
     }
     else if(!this.registrationForm.valid) {
       console.log("data not valid")
 
     }
-
-    // TODO: Save user data to database
-  }
+  }  
 }
