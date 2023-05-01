@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
 import { Observable, of } from 'rxjs';
+import { CrudServicesService } from './crud-services.service';
 
 
 @Injectable({
@@ -27,5 +28,5 @@ export class UserService {
     return of(this.users);
   }
 
-}import { CrudServicesService } from './crud-services.service';
+}
 

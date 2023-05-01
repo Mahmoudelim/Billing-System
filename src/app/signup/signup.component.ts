@@ -49,7 +49,7 @@ export class SignupComponent {
     );
     console.log(user);
     this.UserService.addUser(user);
-
+    this.router.navigate(['/login']);
     }
     else if(!this.registrationForm.valid) {
       console.log("data not valid")

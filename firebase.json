@@ -1,1 +1,15 @@
-{}
+{
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs16"
+  },
+  "hosting": {
+    "public": "dist/your-app",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

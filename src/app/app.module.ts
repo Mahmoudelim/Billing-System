@@ -14,6 +14,7 @@ import { AuthenticationService } from './authentication.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ElectInvoiceComponent } from './elect-invoice/elect-invoice.component'; // Import the FormsModule
 import { ElectristyDataComponent } from './electristy-data/electristy-data.component';
@@ -54,7 +55,8 @@ import { SignupComponent } from './signup/signup.component';
     ForgotPasswordComponent,
     VarifyEmailComponent,
     LoadingDialogComponent,
-    SignupComponent
+    SignupComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -68,9 +70,9 @@ import { SignupComponent } from './signup/signup.component';
     messagingSenderId: "94761470348",
     appId: "1:94761470348:web:fa04475b723003e3f86ea9",
     measurementId: "G-MM7G0TFPRC"}),AngularFireDatabaseModule,
-    AngularFirestoreModule //firestore
+    AngularFirestoreModule //firestore,
+   , HttpClientModule
 
-    
   ],
   providers: [PaymentService,BillingService,UserService,AuthenticationService],
   bootstrap: [AppComponent]
