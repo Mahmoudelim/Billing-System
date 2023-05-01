@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
   }
   
   async onsignin(email:string,password:string){
-    await this.auth.register(email,password)
+     this.auth.register(email,password)
     if(this.auth.isloggein){
       this.issignedin=true;
     }

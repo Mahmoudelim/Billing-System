@@ -34,6 +34,10 @@ import { environment } from 'src/environments/environment.development';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { LoadingDialogComponent } from './loading-dialog/loading-dialog.component';
 import { SignupComponent } from './signup/signup.component';
+import { AdminsignupComponent } from './Admin/adminsignup/adminsignup.component';
+import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
+import { AddOfferComponent } from './SP/add-offer/add-offer.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,8 +59,7 @@ import { SignupComponent } from './signup/signup.component';
     ForgotPasswordComponent,
     VarifyEmailComponent,
     LoadingDialogComponent,
-    SignupComponent,
-
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -70,8 +73,8 @@ import { SignupComponent } from './signup/signup.component';
     messagingSenderId: "94761470348",
     appId: "1:94761470348:web:fa04475b723003e3f86ea9",
     measurementId: "G-MM7G0TFPRC"}),AngularFireDatabaseModule,
-    AngularFirestoreModule //firestore,
-   , HttpClientModule
+    AngularFirestoreModule //firestore
+
 
   ],
   providers: [PaymentService,BillingService,UserService,AuthenticationService],
