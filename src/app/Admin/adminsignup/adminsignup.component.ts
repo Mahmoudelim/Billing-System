@@ -13,7 +13,7 @@ import { AdminServiceService } from '../admin-service.service';
   styleUrls: ['./adminsignup.component.css']
 })
 export class AdminsignupComponent {
-  registrationForm!: FormGroup  ;
+  registrationForm!: FormGroup ;
   issignedin=false;
 
   constructor(private formBuilder: FormBuilder,private router: Router,public auth:AuthenticationService,private appComponent: AppComponent,private adminservice:AdminServiceService) { }
@@ -32,7 +32,7 @@ export class AdminsignupComponent {
       this.issignedin=false;
     }
   }
-  
+
 
 
   onSubmit(): void {
@@ -42,9 +42,9 @@ export class AdminsignupComponent {
       this.registrationForm.value.lastName,
       this.registrationForm.value.email,
       this.registrationForm.value.password,
-     
+
     );
-    this.auth.adminregister(this.registrationForm.value.email,this.registrationForm.value.password);  
+    this.auth.adminregister(this.registrationForm.value.email,this.registrationForm.value.password);
     console.log(admin);
    this.adminservice.addadmin(admin);
     if(this.auth.isloggein){
@@ -55,5 +55,5 @@ export class AdminsignupComponent {
       console.log("data not valid")
 
     }
-  }  
+  }
 }
