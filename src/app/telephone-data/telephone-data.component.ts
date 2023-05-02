@@ -51,7 +51,7 @@ export class TelephoneDataComponent implements OnInit {
   }
   getFineTax(user: User, totalCost: number, internetCost: number): number {
     const today = new Date();
-    const deadline = user.telephoneDeadline;
+    const deadline =new Date (user.telephoneDeadline);
     const daysLate = Math.floor((today.getTime() - deadline.getTime()) / (1000 * 60 * 60 * 24));
     if (daysLate > 0) {
       const paymentAmount = totalCost + internetCost;
