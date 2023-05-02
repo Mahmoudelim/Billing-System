@@ -38,6 +38,7 @@ import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
 import { AddOfferComponent } from './SP/add-offer/add-offer.component';
 import { Database, ref, remove } from 'firebase/database';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +62,8 @@ import { Database, ref, remove } from 'firebase/database';
     LoadingDialogComponent,
     SignupComponent,
     AdminsignupComponent,
-    AdminloginComponent
+    AdminloginComponent,
+    AddOfferComponent
   ],
   imports: [
     BrowserModule,

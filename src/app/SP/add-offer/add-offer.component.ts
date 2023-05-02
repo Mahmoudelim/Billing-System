@@ -1,10 +1,8 @@
-import { Component ,OnInit } from '@angular/core';
-import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { Component ,OnInit ,NgModule } from '@angular/core';
 import { SpserviceService } from '../spservice.service';
 import { item } from 'src/app/Model/item';
 import { Observable, map } from 'rxjs';
 import { AuthenticationService } from 'src/app/authentication.service';
-import { user } from '@angular/fire/auth';
 import firebase from 'firebase/compat/app';
 
 
