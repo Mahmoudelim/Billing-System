@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +10,25 @@ export class CrudServicesService {
 
  private usersRef = this.db.list('users');
  private adminsRef = this.db.list('admins');
-
-
+ private  electricityPymentRef7=this.db.list('Electricity Payment')
+ private  waterPaymentRef=this.db.list('Water Payment')
+ private  phonePaymentref=this.db.list('phone payment')
   constructor(private db: AngularFireDatabase) { }
+  getUsers(): Observable<User[]> {
+    return this.db.list<User>('users').valueChanges();
+  }
+getphonePaymentRef(){
+  return this.phonePaymentref;
+}
 
+getWaterRef(){
+  return this.waterPaymentRef;
+}
+
+
+getElectristyRef(){
+  return this.electricityPymentRef7;
+}
   getUsersRef() {
     return this.usersRef;
   }

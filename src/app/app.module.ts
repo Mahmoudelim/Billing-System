@@ -29,7 +29,6 @@ import { PhoneInvoiceComponent } from './phone-invoice/phone-invoice.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VarifyEmailComponent } from './varify-email/varify-email.component'; // Import the FormsModule
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-
 import { environment } from 'src/environments/environment.development';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { LoadingDialogComponent } from './loading-dialog/loading-dialog.component';
@@ -59,7 +58,9 @@ import { AddOfferComponent } from './SP/add-offer/add-offer.component';
     ForgotPasswordComponent,
     VarifyEmailComponent,
     LoadingDialogComponent,
-    SignupComponent
+    SignupComponent,
+    AdminsignupComponent,
+    AdminloginComponent
   ],
   imports: [
     BrowserModule,

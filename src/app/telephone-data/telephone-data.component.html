@@ -10,8 +10,10 @@
     <tr>
       <th>Name</th>
       <th>Units Used</th>
-      <th>Cost</th>
+      <th>Cost of units</th>
+      <th>Cost of Intrnet</th>
       <th>Deadline</th>
+
     </tr>
   </thead>
   <tbody>
@@ -19,8 +21,18 @@
       <td>{{ user.firstName }} {{ user.lastName }}</td>
       <td>{{ user.telephoneUnitsUsed }}</td>
       <td>{{ billingService.calculateCost(unitCost, user.telephoneUnitsUsed) | currency:'USD':'symbol':'1.2-2' }}</td>
-      <td><input placeholder="00/0/2023" type="date" [(ngModel)]="user.telephoneDeadline"></td>
+      <td>{{user.InternetCost |currency :'USD':'symbol':'1.2-2'}}</td>
+      <td>
+        <ng-container *ngIf="user.PreOrpost; else actualDeadline">{{ 'pre' }}</ng-container>
+        <ng-template #actualDeadline>
+          <input placeholder="00/0/2023" type="date" [(ngModel)]="user.telephoneDeadline">
+        </ng-template>
+      </td>
+
+
     </tr>
   </tbody>
 </table>
-
+<div class="submitBtn">
+  <button (click)="calculateCosts()">Save</button>
+</div>
