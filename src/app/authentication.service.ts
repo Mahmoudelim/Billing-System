@@ -5,33 +5,51 @@ import { GoogleAuthProvider} from '@angular/fire/auth';
 import { User } from './user';
 import { Admin } from './Model/admin';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
+
+import firebase from 'firebase/compat/app';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+   userData: Observable<firebase.User | null> | undefined;
+
   isloggein=false;
   sucess=false;
-  
-  constructor(private fireauth : AngularFireAuth, private router : Router,public db: AngularFireDatabase) { }
+  constructor(public fireauth : AngularFireAuth, private router : Router,public db: AngularFireDatabase) {
+    this.userData = fireauth.authState;
+    const user = this.fireauth.currentUser;
+  }
+ 
+
+
   login(email : string, password : string) {
     this.fireauth.signInWithEmailAndPassword(email,password).then( res => {
-      this.isloggein=true;
         localStorage.setItem('User',JSON.stringify(res.user));
-
+        this.fireauth.authState.subscribe(user => {
+          if (user) {
+            alert('welcome '+user.email);
+          } 
+        });
         if(res.user?.emailVerified == true) {
           this.router.navigate(['userhome']);
+          this.isloggein=true;
+
         } else {
           this.router.navigate(['/userhome']);
         }
 
     }, err => {
         alert(err.message);
+        this.isloggein=false;
+
         this.router.navigate(['/login']);
     })
     
+    
   }
-
 
 
   // register  user
@@ -41,7 +59,7 @@ export class AuthenticationService {
       this.sucess=true;
       alert('Registration Successful');
       this.sendEmailForVarification(res.user);
-      this.isloggein=true;
+      this.isloggein=false;
       //this.router.navigate(['/login']);
       
     }, err => {
@@ -54,17 +72,24 @@ export class AuthenticationService {
 
   loginadmin(email : string, password : string) {
     this.fireauth.signInWithEmailAndPassword(email,password).then( res => {
+      
       this.isloggein=true;
         localStorage.setItem('Admin',JSON.stringify(res.user));
+        this.fireauth.authState.subscribe(user => {
+          if (user) {
+            alert('welcome '+user.email);            
 
+          } 
+        });
         if(res.user?.emailVerified == true) {
           this.router.navigate(['toAdminDashboard']);
         } else {
-          this.router.navigate(['/toAdminDashboard']);
+          alert('verfy email')
+          this.router.navigate(['/login']);
         }
 
     }, err => {
-        alert(err.message);
+        alert(err.message );
         this.router.navigate(['/login']);
     })
   }
@@ -76,7 +101,7 @@ adminregister(email : string, password : string) {
     this.sucess=true;
     alert('Registration Successful');
     this.sendEmailForVarification(res.user);
-    this.isloggein=true;
+    this.isloggein=false;
     //this.router.navigate(['/login']);
     
   }, err => {

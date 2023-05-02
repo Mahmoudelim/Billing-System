@@ -1,0 +1,30 @@
+<h2>Items</h2>
+<form (ngSubmit)="addItem(newItem,user.email ? user.email : '' )" *ngIf="(auth.userData | async) as user" >
+    <label>Title:</label>
+    <input [(ngModel)]="newItem.title" name="title">
+    <label>Owner:{{ user.email }}</label>
+    <input [(ngModel)]="newItem.description" name="description">
+    
+    <button type="submit">Add</button>
+  </form>
+<table class="my-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items" >
+        <td>{{ item.title }}</td>
+        <td>{{ item.description }}</td>
+       
+
+        <td> <button l="item.id" (click)="deleteItem(item)" >Delete</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+  

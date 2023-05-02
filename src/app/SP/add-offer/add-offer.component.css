@@ -32,12 +32,12 @@
   
   button[type="submit"] {
     display: block;
-    margin: 20px auto 0;
+    margin: 10px auto 0;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    background-color:darkgreen;
+    background-color:rgb(5, 156, 5);
     color:black;
     text-decoration-style:solid;
     cursor: pointer;
@@ -45,5 +45,40 @@
   
   button[type="submit"]:hover {
     background-color: green;
+  }
+  .my-table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px; 
+    margin: 0 auto; /* Center the table horizontally */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin-top: 200px;
+  }
+  
+  .my-table th,
+  .my-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  
+  .my-table th {
+  color: #fff;
+    background-color: #04c26d;
+  }
+  
+  
+  .my-table td button {
+    background-color: #04c26d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    align-items: center;
+  }
+  tr:hover {
+    background-color: #ddd;
   }
   

@@ -11,11 +11,12 @@ import { LoadingDialogComponent } from '../loading-dialog/loading-dialog.compone
 })
 export class LoginComponent implements OnInit {
   issignedin=false;
-
+  invalidLogin: boolean=false; 
   email : string = '';
   password : string = '';
 
-  constructor(private auth : AuthenticationService) { }
+  constructor(public auth : AuthenticationService) {
+   }
 
   
 
@@ -34,6 +35,10 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.email,this.password);
     this.email = '';
     this.password = '';
+    if(this.auth.isloggein!=true){
+      this.invalidLogin = false; 
+
+    }
 
   }
   signInWithGoogle() {

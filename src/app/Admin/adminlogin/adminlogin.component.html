@@ -1,3 +1,7 @@
+<div *ngIf="(auth.userData | async) as user">
+  <p>Welcome, {{ user.displayName }}!</p>
+  <p>Your email is {{ user.email }}.</p>
+</div>
 <div class="container" >
     <h1>Login</h1>
     <form >
@@ -13,7 +17,7 @@
     </form>
     <div class="links">
       <a  href="/forgot-password" class="text-dark" style="text-decoration: none;">Forgot password?</a>
-      <a href="/register" style="text-decoration: none;">Don't have an account? Register here</a>
+      <a href="/adminsignup" style="text-decoration: none;">Don't have an account? Register here</a>
     </div>
     <div class="row mt-2">
       <a (click)="signInWithGoogle()" style="text-decoration: none;cursor: pointer;">

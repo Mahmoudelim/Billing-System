@@ -13,7 +13,7 @@ export class AdminloginComponent {
   email : string = '';
   password : string = '';
 
-  constructor(private auth : AuthenticationService) { }
+  constructor(public auth : AuthenticationService) { }
 
   
 
