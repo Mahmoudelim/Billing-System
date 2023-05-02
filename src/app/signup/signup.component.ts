@@ -35,7 +35,7 @@ export class SignupComponent {
       this.issignedin=false;
     }
   }
-  
+
 
 
   onSubmit(): void {
@@ -54,18 +54,18 @@ export class SignupComponent {
       new Date(10/5/2023),
       new Date(10/5/2023),
       new Date(10/5/2023),
+      true,
+      140
 
     );
-    this.auth.register(this.registrationForm.value.email,this.registrationForm.value.password);  
+    this.auth.register(this.registrationForm.value.email,this.registrationForm.value.password);
     console.log(user);
     this.UserService.addUser(user);
-    if(this.auth.isloggein){
-      this.issignedin=true;
-    }
+    this.router.navigate(['/login']);
     }
     else if(!this.registrationForm.valid) {
       console.log("data not valid")
 
     }
-  }  
+  }
 }

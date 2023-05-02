@@ -14,6 +14,7 @@ import { AuthenticationService } from './authentication.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ElectInvoiceComponent } from './elect-invoice/elect-invoice.component'; // Import the FormsModule
 import { ElectristyDataComponent } from './electristy-data/electristy-data.component';
@@ -28,7 +29,6 @@ import { PhoneInvoiceComponent } from './phone-invoice/phone-invoice.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VarifyEmailComponent } from './varify-email/varify-email.component'; // Import the FormsModule
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-
 import { environment } from 'src/environments/environment.development';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { LoadingDialogComponent } from './loading-dialog/loading-dialog.component';
@@ -61,8 +61,8 @@ import { Database, ref, remove } from 'firebase/database';
     LoadingDialogComponent,
     SignupComponent,
     AdminsignupComponent,
-    AdminloginComponent,
-    AddOfferComponent    ],
+    AdminloginComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -76,10 +76,8 @@ import { Database, ref, remove } from 'firebase/database';
     appId: "1:94761470348:web:fa04475b723003e3f86ea9",
     measurementId: "G-MM7G0TFPRC"}),AngularFireDatabaseModule,
     AngularFirestoreModule //firestore
-    
-    
 
-    
+
   ],
   providers: [PaymentService,BillingService,UserService,AuthenticationService],
   bootstrap: [AppComponent]

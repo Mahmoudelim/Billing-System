@@ -15,11 +15,11 @@ export class AdminloginComponent {
 
   constructor(public auth : AuthenticationService) { }
 
-  
+
 
   login() {
-    
-   
+
+
     if(this.email == '') {
       alert('Please enter email');
       return;
@@ -33,7 +33,7 @@ export class AdminloginComponent {
     this.auth.loginadmin(this.email,this.password);
     this.email = '';
     this.password = '';
-  
+
   }
   signInWithGoogle() {
     this.auth.googleSignIn();
@@ -41,13 +41,13 @@ export class AdminloginComponent {
   ngOnInit(){
     if(localStorage.getItem('Admin')!==null){
       this.issignedin=true;
-      
+
     }
     else{
       this.issignedin=false;
     }
   }
-  
-  
-  
+
+
+
 }

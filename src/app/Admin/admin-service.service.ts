@@ -16,7 +16,7 @@ export class AdminServiceService {
     return this.usersRef.push(admin);
   }
   private admin: Admin[] = [
-    
+
   ];
 
 
@@ -24,5 +24,5 @@ export class AdminServiceService {
 
   getUsers(): Observable<Admin[]> {
     return of(this.admin);
-  }  
+  }
 }

@@ -1,9 +1,9 @@
 <div class="container">
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-md-6">
           <h3>Personal Information</h3>
-  
+
           <div class="form-group">
             <label for="firstName">First Name</label>
             <input type="text" class="form-control" placeholder="Enter your first name" formControlName="firstName" required>
@@ -11,7 +11,7 @@
               <div *ngIf="registrationForm.get('firstName')?.errors?.['required']">First Name is required</div>
             </div>
           </div>
-  
+
           <div class="form-group">
             <label for="lastName">Last Name</label>
             <input type="text" class="form-control" placeholder="Enter your second name" formControlName="lastName" required>
@@ -19,7 +19,7 @@
               <div *ngIf="registrationForm.get('lastName')?.errors?.['required']">Last Name is required</div>
             </div>
           </div>
-  
+
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" placeholder="Enter your email" formControlName="email" required>
@@ -28,7 +28,7 @@
               <div *ngIf="registrationForm.get('email')?.errors?.['email']">Invalid email format</div>
             </div>
           </div>
-  
+
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" placeholder="Enter your password" formControlName="password" required>
@@ -37,12 +37,11 @@
               <div *ngIf="registrationForm.get('password')?.errors?.['pattern']">Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character</div>
             </div>
           </div>
-  
+
         </div>
       </div>
       <button type="submit" >Submit</button>
-  
+
     </form>
   </div>
-  
-  
+

@@ -12,6 +12,8 @@ export class User {
   electricityDeadline: Date;
   telephoneDeadline: Date;
   waterDeadline: Date;
+  PreOrpost:boolean;
+  InternetCost:number;
   constructor(
     firstName: string,
     lastName: string,
@@ -25,7 +27,9 @@ export class User {
     waterUnitsUsed: number,
     electricityDeadline: Date,
     telephoneDeadline: Date,
-    waterDeadline: Date
+    waterDeadline: Date,
+    PreOrpost:boolean,
+  InternetCost:number
   ) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -40,5 +44,7 @@ export class User {
     this.electricityDeadline = electricityDeadline;
     this.telephoneDeadline = telephoneDeadline;
     this.waterDeadline = waterDeadline;
+    this.PreOrpost=PreOrpost;
+    this.InternetCost=InternetCost;
   }
 }
