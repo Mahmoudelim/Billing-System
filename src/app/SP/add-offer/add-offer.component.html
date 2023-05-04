@@ -1,28 +1,39 @@
+<app-admin-toolbar></app-admin-toolbar>
 <h2>Items</h2>
 <form (ngSubmit)="addItem(newItem,user.email ? user.email : '' )" *ngIf="(auth.userData | async) as user" >
+  <label>Owner:{{ user.email }}</label>  
     <label>Title:</label>
     <input [(ngModel)]="newItem.title" name="title">
-    <label>Owner:{{ user.email }}</label>
+    <label>Description:</label>
     <input [(ngModel)]="newItem.description" name="description">
+    <label>status:</label>
+    <input [(ngModel)]="newItem.status" name="status">
     
     <button type="submit">Add</button>
   </form>
-<table class="my-table">
+  <div>
+    <button (click)="filterItems()">Filter by Email</button>
+  </div>
+  <table class="my-table">
     <thead>
       <tr>
         <th>Title</th>
         <th>Description</th>
+        <th>Status</th>
         <th>Action</th>
-
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of items" >
-        <td>{{ item.title }}</td>
-        <td>{{ item.description }}</td>
-       
+      <tr *ngFor="let item of items$ | async">
+        <td><input type="text" [(ngModel)]="item.payload.val().title"></td>
+        <td><input type="text" [(ngModel)]="item.payload.val().description"></td>
+        <td><input type="text" [(ngModel)]="item.payload.val().status"></td>
 
-        <td> <button l="item.id" (click)="deleteItem(item)" >Delete</button></td>
+        <td>
+        <!--  <button (click)="updateItem(item.key, item.payload.val())">Update</button> -->
+          <button (click)="deleteItem(item.key)">Delete</button>
+          <button (click)="updateItem(item.key, item.payload.val())">Update</button>
+        </td>
 
       </tr>
     </tbody>

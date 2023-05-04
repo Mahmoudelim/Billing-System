@@ -13,10 +13,12 @@ submitted=false;
     
   }
 
-  deleteItem(id: string): Promise<void> {
+  /*deleteItem(id: string): Promise<void> {
+    alert("deleted succesfully")
+
     return this.itemsRef.remove(id);
   }
-  
+  */
   
    getItems(): Observable<item[]> {
     return this.itemsRef.valueChanges();
@@ -35,6 +37,7 @@ submitted=false;
   update(key: string, value: any): Promise<void> {
     return this.itemsRef.update(key, value);
   }
+  
   
   
   getAll(): AngularFireList<item> {
