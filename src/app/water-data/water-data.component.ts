@@ -14,7 +14,7 @@ export class WaterDataComponent implements OnInit {
 
   unitCost: number = 0;
   users: User[] = [];
-
+  fineTaxPercentage:number=2;
   constructor(private userService: UserService, public billingService: BillingService,private unitCostService: UnitCostService,private CrudServices:CrudServicesService) { }
 
   ngOnInit(): void {
@@ -32,14 +32,26 @@ export class WaterDataComponent implements OnInit {
   }
   calculateCosts(): void {
     // Loop through each user and calculate the cost
-    for (const user of this.users) {
-      const cost = this.billingService.calculateCost(this.unitCost, user.electricityUnitsUsed);
 
+    for (const user of this.users) {
+      const cost = this.billingService.calculateCost(this.unitCost, user.waterUnitsUsed);
+      const fineTax= this.getFineTax(user,cost)
       // Save the electricity payment to the real-time database
-      const payment = new WaterPayment(user.email,user.waterDeadline, cost, 0);
+      const payment = new WaterPayment(user.email,user.waterDeadline, cost, fineTax);
       this.CrudServices.getWaterRef().push(payment);
     }
   }
+  getFineTax(user: User, totalCost: number): number {
+    const today = new Date();
+    const deadline =new Date (user.waterDeadline);
+    const daysLate = Math.floor((today.getTime() - deadline.getTime()) / (1000 * 60 * 60 * 24));
+    if (daysLate > 0) {
+      const paymentAmount = totalCost;
+      const fineTax = paymentAmount * (this.fineTaxPercentage / 100)*daysLate;
+      return fineTax;
+    } else {
+      return 0;
+    }
 
-
+  }
 }
