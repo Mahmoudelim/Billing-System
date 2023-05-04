@@ -13,7 +13,7 @@ import { phonePayment } from '../Model/phonePayment';
 export class TelephoneDataComponent implements OnInit {
   unitCost: number = 0;
   users: User[] = [];
-  fineTaxPercentage = 2;
+  fineTaxPercentage = 1.5;
   constructor(private userService: UserService, public billingService: BillingService,private unitCostService: UnitCostService,private c: CrudServicesService) { }
 
   ngOnInit(): void {
@@ -54,8 +54,8 @@ export class TelephoneDataComponent implements OnInit {
     const deadline =new Date (user.telephoneDeadline);
     const daysLate = Math.floor((today.getTime() - deadline.getTime()) / (1000 * 60 * 60 * 24));
     if (daysLate > 0) {
-      const paymentAmount = totalCost + internetCost;
-      const fineTax = paymentAmount * (this.fineTaxPercentage / 100);
+      const paymentAmount = (totalCost + internetCost);
+      const fineTax = paymentAmount * (this.fineTaxPercentage / 100)*daysLate;
       return fineTax;
     } else {
       return 0;

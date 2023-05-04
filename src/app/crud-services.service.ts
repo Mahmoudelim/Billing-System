@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 import { User } from './user';
+import { ElectricitPayment } from './Model/ElectricitPayment';
+import { WaterPayment } from './Model/WaterPayment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,12 @@ export class CrudServicesService {
 getphonePaymentRef(){
   return this.phonePaymentref;
 }
-
+getElectricityPaymentByEmail(email: string): Observable<ElectricitPayment[]> {
+  return this.db.list<ElectricitPayment>('Electricity Payment', ref => ref.orderByChild('UserEmail').equalTo(email)).valueChanges();
+}
+getWaterPaymentByEmail(email: string): Observable<WaterPayment[]> {
+  return this.db.list<WaterPayment>('Water Payment', ref => ref.orderByChild('UserEmail').equalTo(email)).valueChanges();
+}
 getWaterRef(){
   return this.waterPaymentRef;
 }
