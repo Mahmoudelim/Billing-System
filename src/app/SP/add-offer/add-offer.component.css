@@ -1,7 +1,4 @@
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
+
   
   h3 {
     font-weight: bold;
@@ -50,12 +47,11 @@
   }
   .my-table {
     border-collapse: collapse;
-    width: 100%;
-    max-width: 800px; 
-    margin: 0 auto; /* Center the table horizontally */
+    width: 80%;
+    margin: 0 ; /* Center the table horizontally */
     font-family: Arial, sans-serif;
     font-size: 14px;
-    margin-top: 200px;
+    margin-top: 50px;
   }
   
   .my-table th,

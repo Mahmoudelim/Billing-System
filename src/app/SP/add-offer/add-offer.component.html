@@ -8,12 +8,16 @@
     <input [(ngModel)]="newItem.description" name="description">
     <label>status:</label>
     <input [(ngModel)]="newItem.status" name="status">
+    <label>Gb:</label>
+    <input [(ngModel)]="newItem.gb" name="status">
+    <label>Cost:</label>
+    <input [(ngModel)]="newItem.cost" name="status">
     
     <button type="submit">Add</button>
   </form>
-  <div>
+  <!-- <div>
     <button (click)="filterItems()">Filter by Email</button>
-  </div>
+  </div>!-->
   <table class="my-table">
     <thead>
       <tr>
@@ -28,7 +32,8 @@
         <td><input type="text" [(ngModel)]="item.payload.val().title"></td>
         <td><input type="text" [(ngModel)]="item.payload.val().description"></td>
         <td><input type="text" [(ngModel)]="item.payload.val().status"></td>
-
+        <td><input type="text" [(ngModel)]="item.payload.val().gb">Gb</td>
+        <td><input type="text" [(ngModel)]="item.payload.val().cost">$</td>  
         <td>
         <!--  <button (click)="updateItem(item.key, item.payload.val())">Update</button> -->
           <button (click)="deleteItem(item.key)">Delete</button>

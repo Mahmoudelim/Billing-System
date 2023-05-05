@@ -1,86 +1,84 @@
-form {
-  max-width: 500px;
+/* Style for form container */
+.form-container {
+  max-width: 900px; /* increase max-width for a larger form */
   margin: 0 auto;
-  font-family: Arial, sans-serif;
+  height: 500px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 50px; /* increase padding for more space between elements */
+  background-color: #f2f2f2; /* add background color */
+  color: #333; /* add text color */
+  display: flex;
+  flex-direction: column; /* use flexbox to vertically align form elements */
+  align-items: center; /* vertically align form elements */
 }
 
-.form-group {
-  margin-bottom: 10px;
-  padding-top: 10px;
+/* Style for form header */
+.form-header {
+  font-size: 36px; /* increase font size for a bigger header */
+  font-weight: bold;
+  margin-bottom: 40px; /* increase margin for more space below the header */
+  text-align: center;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+/* Style for form input fields */
+.form-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 25px; 
+  font-size: 18px;/* increase margin for more space between input fields */
+}
+
+.form-input label {
+  flex-basis: 200px; /* increase width for longer labels */
   font-weight: bold;
 }
 
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  align-items: center;
-  margin-bottom: 10px;
+.form-input span {
+  margin-left: 1px;
+}
 
+.email-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px; /* increase margin for more space below the email info */
+}
+
+.email-info span {
+  margin-right: 10px;
+}
+
+.email-info a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+.email-info a:hover {
+  color: #3e8e41;
+}
+
+/* Style for form submit button */
+.form-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px; /* increase margin for more space above the submit button */
 }
 
 button[type="submit"] {
-  display: block;
-  margin: 20px 0;
-  padding: 10px;
-  margin-left: 200px;
+  padding: 15px; /* increase padding for a bigger button */
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
+  border-radius: 4px;
+  width: 500px;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
 button[type="submit"]:hover {
   background-color: #3e8e41;
-}
-
-#cardholder-name {
-  text-transform: uppercase;
-}
-
-#card-number {
-  letter-spacing: 4px;
-}
-
-#expiration-date,
-#cvv-code {
-  width: 100%;
-  display: inline-block;
-}
-
-
-
-@media (max-width: 768px) {
-  #expiration-date,
-  #cvv-code {
-    width: 100%;
-    margin-left: 0;
-  }
-}
-
-h2 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-p {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-strong {
-  font-weight: bold;
 }

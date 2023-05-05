@@ -21,7 +21,9 @@ export class AddOfferComponent {
     title: '',
     description: '',
     ownername:'',
-    status:''
+    status:'',
+    gb:'',
+    cost:''
   }; 
   
   userData: Observable<firebase.User | null> | undefined;
@@ -48,7 +50,7 @@ export class AddOfferComponent {
 
   addItem(items: item, email: string ): void {
 
-    const i=new item(items.id,items.title,items.description,email,items.status);
+    const i=new item(items.id,items.title,items.description,email,items.status,items.gb,items.cost);
     if(items.title==''||items.description=='')
     {
       console.error("please fill All inputs");

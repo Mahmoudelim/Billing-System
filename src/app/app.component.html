@@ -1,11 +1,13 @@
-<nav *ngIf="!issignedin">
-  <h1>Billing System</h1>
-  <div class="left-buttons">
-    <button  routerLink="/login">Login</button>
-    <button  routerLink="/register">register</button>
+<nav >
+  <h1 ><span routerLink="{{ targetComponentRoute }}">Billing System</span>
 
-    <button  routerLink="/adminlogin">s</button>
-    <button  routerLink="/adminsignup">user</button>
+    </h1>
+  <div class="left-buttons">
+    <button  routerLink="/login">Login User</button>
+    <button  routerLink="/register">Register User</button>
+
+    <button  routerLink="/adminlogin">Login Admin</button>
+    <button  routerLink="/adminsignup">Register Admin</button>
 
 
 

@@ -19,8 +19,9 @@ import { SignupComponent } from './signup/signup.component';
 import { AdminsignupComponent } from './Admin/adminsignup/adminsignup.component';
 import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
 import { AddOfferComponent } from './SP/add-offer/add-offer.component';
+import { item } from './Model/item';
 const routes: Routes = [
-{ path:'', component: HomeComponent },
+{ path:'home', component: HomeComponent },
  { path: 'login', component: LoginComponent },
  { path: 'register', component: SignupComponent },
  { path: 'elect', component: ElectInvoiceComponent },
@@ -37,7 +38,10 @@ const routes: Routes = [
  {path:'varify-email',component:VarifyEmailComponent},
 {path:'adminsignup',component:AdminsignupComponent},
 {path:'adminlogin',component:AdminloginComponent},
-{path:'addsp',component:AddOfferComponent}
+{path:'addsp',component:AddOfferComponent},
+{path:'payment',component:PaymentComponent,// define queryParams
+data: {
+  queryParams: [item, 'email']}}
 ];
 
 @NgModule({
