@@ -46,6 +46,8 @@ nav {
     background-color: green;
     color: #fff;
     border-radius: 4px;
+    align-items: end;
+    
   }
   
   .nav-button a:hover {

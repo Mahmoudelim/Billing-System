@@ -10,29 +10,17 @@ import('firebase/compat/database');
 })
 export class AppComponent {
   title = 'billingSystem';
+  targetComponentRoute = '/home';
 
  issignedin=false;
   constructor(public router: Router,public Auth:AuthenticationService) {
+      this.router.navigate([this.targetComponentRoute]);
     
   }
   
   ngOnInit(){
     
   }
- /* async onsignup(email:string,password:string){
-    await this.Auth.register(email,password)
-    if(this.Auth.isloggein){
-      this.issignedin=true;
-    }
-  }
-  async onsignin(email:string,password:string){
-    await this.Auth.register(email,password)
-    if(this.Auth.isloggein){
-      this.issignedin=true;
-    }
-  }
-  handlelogout(){
-    this.issignedin=false;
-  }*/
+ 
   
 }

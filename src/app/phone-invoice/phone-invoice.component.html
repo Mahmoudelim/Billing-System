@@ -1,9 +1,13 @@
 <div><app-navbar></app-navbar></div>
 <app-slideshow></app-slideshow>
 
+<div *ngFor="let item of items">
+  <div (click)="openPopup(item)">
+    {{ item.title }}
+  </div>
+</div>
 
-
-  
+<app-popup *ngIf="showPopup" [selectedItem]="selectedItem" (closePopup)="closePopup()"></app-popup>
   <div class="tabs">
     <ul>
       <li [class.active]="activeTab === 'prepaid'" (click)="setActiveTab('prepaid')">Prepaid</li>
@@ -15,22 +19,29 @@
     <div *ngIf="activeTab === 'prepaid'">
       <div class="container">
         <div *ngFor="let item of prepaidItems" class="box">
+
             <img src="/assets/images/voda1.jpg" alt="Image ">
-            <h2>{{ item.title }}</h2>
-          <p>{{ item.description }}</p>
-          <button (click)="goToPayment()">Pay</button>
-        </div>
+
+            <h2>TiTle: {{ item.title }}</h2>
+            <p>Description:{{ item.description }}</p>
+            <p>Cost:{{ item.cost }}$</p>
+            <p>Gb:{{ item.gb }}Gb</p>
+            <button class="button2" (click)="openPopup(item)">Description</button>
+           <button (click)="selectItem(item)" *ngIf="(auth.userData | async) as user">Pay</button>        </div>
       </div>
     </div>
+    
 
     <div *ngIf="activeTab === 'postpaid'">
       <div class="container">
         <div *ngFor="let item of postpaidItems" class="box">
           <img src="/assets/images/voda1.jpg" alt="Image ">
-          <h2>{{ item.title }}</h2>
-          <p>{{ item.description }}</p>
-          <button (click)="goToPayment()">Pay</button>
-        </div>
+          <h2>TiTle: {{ item.title }}</h2>
+          <p>Description:{{ item.description }}</p>
+          <p>Cost:{{ item.cost }}$</p>
+          <p>Gb:{{ item.gb }}Gb</p>
+          <button class="button2" (click)="openPopup(item)">Description</button>
+          <button (click)="selectItem(item)" *ngIf="(auth.userData | async) as user">Pay</button>        </div>
       </div>
     </div>
   </div>

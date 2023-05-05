@@ -1,0 +1,10 @@
+<div class="popup">
+    <h2>{{ selectedItem.title }}</h2>
+    <h2>{{ selectedItem.description }}</h2>
+    <h2>{{ selectedItem.ownername }}</h2>
+    <h2>{{ selectedItem.status }}</h2>
+
+
+    <div>{{ dataFromFirebase }}</div>
+    <button (click)="onClose()">Close</button>
+  </div>

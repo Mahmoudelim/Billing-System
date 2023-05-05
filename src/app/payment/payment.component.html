@@ -1,24 +1,43 @@
-<form>
-  <h2>Payment Invoice</h2>
-  <div class="form-group">
-<p><strong>Payment ID:</strong> {{ paymentDetails.id }}</p>
-<p><strong>Name:</strong> {{ paymentDetails.name }}</p>
-<p><strong>Amount:</strong> {{ paymentDetails.amount }}</p>
-<p><strong>Date:</strong> {{ paymentDetails.date }}</p>
-    <label for="cardholder-name">Cardholder Name:</label>
-    <input type="text" id="cardholder-name" name="cardholderName" required>
-  
-    <label for="card-number">Card Number:</label>
-    <input type="text" id="card-number" name="cardNumber" required>
- 
-    <label for="expiration-date">Expiration Date:</label>
-    <input type="text" id="expiration-date" name="expirationDate" required>
-  
-    <label for="cvv-code">CVV Code:</label>
-    <input type="text" id="cvv-code" name="cvvCode" required>
-  </div>
-  <button type="submit">Pay Now</button>
-  
-</form>
+<div class="form-container">
+  <div class="form-header">Payment information</div>
+  <form>
+    <div class="form-input">
+      <label for="name">Name:</label>
+      <div class="name-info">
+        <span>{{ user.firstName }}</span>
+        <span>{{ user.lastName }}</span>
+      </div>
+    </div>
+    <div class="form-input">
+      <label for="email">Email:</label>
+      <div class="email-info">
+        <span>{{ user.email }}</span>
+        <a href="mailto:{{ user.email }}">Send Email</a>
+      </div>
+    </div>
+    <div class="form-input">
+      <label for="creditCardNumber">CreditCardNumber:</label>
+      <div class="credit-info">
+        <span>{{ user.creditCardNumber  }}</span>
+      </div>
+    </div>
+    
+    <div class="form-input">
+      <label for="title">Service Providor:</label>
+      <span>{{ email  }}</span>
 
+    </div>
+    <div class="form-input">
+      <label for="title">Item Name:</label>
+      <span>{{ newinvoice.title  }}</span>
 
+    </div>
+    <div class="form-input">
+      <label for="title">cost:</label>
+      <span>{{ newinvoice.cost  }} $</span>
+
+    </div>
+    <button type="submit" (click)="addItem()">pay</button>
+
+  </form>
+</div>
