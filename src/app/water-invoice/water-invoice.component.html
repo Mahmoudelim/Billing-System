@@ -3,45 +3,42 @@
   <div class="container">
       <div class="box">
         <i class="fa fa-envelope"></i>
-        <img src="/assets/images/logout.png" alt="Image ">    
+        <img src="/assets/images/logout.png" alt="Image ">
         <h4>Total Unit Used</h4>
-             
+
         <label for="unitused">Unit Used:</label>
       <input type="number" id="unitused" name="unitused" [(ngModel)]="unitused" class="form-control" >
       </div>
       <div class="box">
         <i class="fa fa-phone"></i>
-        <img src="/assets/images/logout.png" alt="Image ">    
+        <img src="/assets/images/logout.png" alt="Image ">
         <h4>Total Cost</h4>
-        <p >{{ billingService.cost(unitused) | currency:'USD':'symbol':'1.2-2' }}</p>
+        <p >{{ cost | currency:'USD':'symbol':'1.2-2' }}</p>
       </div>
       <div class="box">
           <i class="fa fa-phone"></i>
                     <!-- will modify soon -->
 
-          <img src="/assets/images/logout.png" alt="Image ">  
+          <img src="/assets/images/logout.png" alt="Image ">
           <h4>Deadline</h4>
-          <p>15/10/2023</p>
+          <p>{{deadline}}</p>
         </div>
     </div>
-    
+
     <table class="my-table">
       <thead>
         <tr>
           <th>Month</th>
           <th>Cost</th>
+          <th>Deadline</th>
           <th>Action </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of data">
-          <td>{{item.month}}</td>
-          <td>{{item.cost}} $</td>
-          <td><button (click)="goToPayment()">Pay</button></td>
-        </tr>
         <tr>
           <td>Last Month</td>
-          <td> {{ billingService.cost(unitused) | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td>{{ cost | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td>{{ deadline }}</td>
           <td><button (click)="goToPayment()">Pay</button></td>
         </tr>
       </tbody>

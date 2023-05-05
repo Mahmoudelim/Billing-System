@@ -13,6 +13,7 @@ import { ElectricitPayment } from '../Model/ElectricitPayment';
 export class ElectristyDataComponent implements OnInit {
   unitCost: number = 0;
   users: User[] = [];
+  searchText:any;
   constructor(private userService: UserService, public billingService: BillingService,private unitCostService: UnitCostService,private CrudServices:CrudServicesService) { }
   ngOnInit(): void {
    // get all users from the UserService

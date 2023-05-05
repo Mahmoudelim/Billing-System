@@ -36,7 +36,7 @@ h2 {
 .table {
   border-collapse: collapse;
   width: 100%;
-  max-width: 800px; 
+  max-width: 800px;
   margin: 0 auto; /* Center the table horizontally */
   font-family: Arial, sans-serif;
   font-size: 14px;
@@ -63,3 +63,27 @@ h2 {
 .table .table {
   background-color: #fff;
 }
+
+.submitBtn button {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  border: none; /* Remove borders */
+  padding: 10px 20px; /* Padding */
+  text-align: center; /* Center text */
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Display as inline-block */
+  font-size: 16px; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Add cursor on hover */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #4CAF50; /* Green background */
+  max-width: 200px; /* Set maximum width */
+  margin: 0 auto; /* Center horizontally */
+  margin-top: 20PX;
+}
+

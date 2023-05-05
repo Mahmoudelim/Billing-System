@@ -5,13 +5,17 @@ import { User } from '../user';
 import { UnitCostService } from '../unit-cost.service';
 import { WaterPayment } from '../Model/WaterPayment';
 import { CrudServicesService } from '../crud-services.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+
 @Component({
   selector: 'app-water-data',
   templateUrl: './water-data.component.html',
   styleUrls: ['./water-data.component.css']
 })
 export class WaterDataComponent implements OnInit {
-
+  searchText:any;
   unitCost: number = 0;
   users: User[] = [];
   fineTaxPercentage:number=2;
@@ -38,9 +42,10 @@ export class WaterDataComponent implements OnInit {
       const fineTax= this.getFineTax(user,cost)
       // Save the electricity payment to the real-time database
       const payment = new WaterPayment(user.email,user.waterDeadline, cost, fineTax);
-      this.CrudServices.getWaterRef().push(payment);
+      this.CrudServices.updateWaterPaymentByEmail(user.email,payment);
     }
   }
+
   getFineTax(user: User, totalCost: number): number {
     const today = new Date();
     const deadline =new Date (user.waterDeadline);

@@ -31,6 +31,19 @@ getWaterPaymentByEmail(email: string): Observable<WaterPayment[]> {
 getWaterRef(){
   return this.waterPaymentRef;
 }
+updateWaterPaymentByEmail(email: string, waterPayment: WaterPayment) {
+  const waterPaymentRef = this.db.list('Water Payment', ref => ref.orderByChild('UserEmail').equalTo(email)).snapshotChanges();
+  waterPaymentRef.subscribe(actions => {
+    actions.forEach(action => {
+      const key = action.key!;
+      const data = action.payload.val() as WaterPayment;
+      if (data.UserEmail === email) {
+        this.db.list('Water Payment').update(key, waterPayment);
+      }
+    });
+  });
+}
+
 
 
 getElectristyRef(){
