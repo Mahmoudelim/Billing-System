@@ -3,6 +3,9 @@
 <div class="form-group">
   <label for="unitCost">Unit Cost:</label>
   <input type="number" id="unitCost" name="unitCost" [(ngModel)]="unitCost" class="form-control" (change)="onUnitCostChange()">
+  <br>
+  <label>filter : </label>
+  <input type="text" id="search" [(ngModel)]="searchText" placeholder="search" >
 </div>
 
 <table class="table">
@@ -17,7 +20,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users|filter : searchText">
       <td>{{ user.firstName }} {{ user.lastName }}</td>
       <td>{{ user.telephoneUnitsUsed }}</td>
       <td>{{ billingService.calculateCost(unitCost, user.telephoneUnitsUsed) | currency:'USD':'symbol':'1.2-2' }}</td>

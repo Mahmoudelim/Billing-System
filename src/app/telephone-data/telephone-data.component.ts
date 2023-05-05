@@ -14,6 +14,7 @@ export class TelephoneDataComponent implements OnInit {
   unitCost: number = 0;
   users: User[] = [];
   fineTaxPercentage = 1.5;
+  searchText:any;
   constructor(private userService: UserService, public billingService: BillingService,private unitCostService: UnitCostService,private c: CrudServicesService) { }
 
   ngOnInit(): void {
