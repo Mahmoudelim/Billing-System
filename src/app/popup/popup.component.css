@@ -3,44 +3,53 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    border: 1px solid black;
     padding: 20px;
-    max-width: 500px;
-    width: 100%;
-    z-index: 9999;
+    width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    height: 500px;
+    z-index: 999;
   }
   
   .popup-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
   }
   
-  .popup-header h2 {
+  .popup-title {
     margin: 0;
   }
   
-  .close-button {
+  .popup-close {
     background-color: transparent;
     border: none;
-    font-size: 24px;
     cursor: pointer;
+    font-size: 20px;
   }
   
   .popup-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 20px;
   }
   
-  .popup-content img {
-    max-width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  .popup-content p {
+  .popup-description {
     margin: 0;
+    font-size: 18px;
+  }
+  
+  .popup-owner {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .popup-status {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .popup-firebase {
+    margin-top: 10px;
+    font-size: 14px;
   }

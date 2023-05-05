@@ -1,3 +1,5 @@
+import {  phonePayment } from './../Model/phonePayment';
+import { ElectricitPayment } from './../Model/ElectricitPayment';
 import { Component } from '@angular/core';
 import { UserService } from './../user.service';
 import { OnInit } from '@angular/core';
@@ -6,6 +8,8 @@ import { User } from '../user';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { AuthenticationService } from '../authentication.service';
+import { CrudServicesService } from '../crud-services.service';
+import { WaterPayment } from '../Model/WaterPayment';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -15,7 +19,7 @@ export class SignupComponent {
   registrationForm!: FormGroup  ;
   issignedin=false;
 
-  constructor(private formBuilder: FormBuilder,private router: Router,public auth:AuthenticationService,private appComponent: AppComponent,private UserService:UserService) { }
+  constructor(private crud:CrudServicesService,private formBuilder: FormBuilder,private router: Router,public auth:AuthenticationService,private appComponent: AppComponent,private UserService:UserService) { }
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
@@ -60,8 +64,14 @@ export class SignupComponent {
     );
     this.auth.register(this.registrationForm.value.email,this.registrationForm.value.password);
     console.log(user);
+    const Waterpayment=new WaterPayment(user.email,new Date(10/5/2023),0,0)
+    this.crud.getWaterRef().push(Waterpayment);
+    const electricitPayment=new ElectricitPayment(user.email,new Date(10/5/2023),0,0)
+    this.crud.getWaterRef().push(electricitPayment);
+    const PhonePayment=new phonePayment(user.email,new Date(10/5/2023),0,0,0,false)
+    this.crud.getphonePaymentRef().push(PhonePayment);
     this.UserService.addUser(user);
-    this.router.navigate(['/login']);
+   // this.router.navigate(['/login']);
     }
     else if(!this.registrationForm.valid) {
       console.log("data not valid")

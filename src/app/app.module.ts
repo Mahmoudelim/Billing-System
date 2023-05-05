@@ -37,7 +37,9 @@ import { AdminsignupComponent } from './Admin/adminsignup/adminsignup.component'
 import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
 import { AddOfferComponent } from './SP/add-offer/add-offer.component';
 import { Database, ref, remove } from 'firebase/database';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CommonModule } from '@angular/common';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { Database, ref, remove } from 'firebase/database';
     SignupComponent,
     AdminsignupComponent,
     AdminloginComponent,
-    AddOfferComponent
+    AddOfferComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,8 @@ import { Database, ref, remove } from 'firebase/database';
     appId: "1:94761470348:web:fa04475b723003e3f86ea9",
     measurementId: "G-MM7G0TFPRC"}),AngularFireDatabaseModule,
     AngularFirestoreModule //firestore
-
+      ,CommonModule,
+      Ng2SearchPipeModule
 
   ],
   providers: [PaymentService,BillingService,UserService,AuthenticationService],

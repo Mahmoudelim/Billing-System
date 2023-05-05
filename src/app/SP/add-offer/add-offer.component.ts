@@ -73,7 +73,6 @@ export class AddOfferComponent {
   deleteItem(itemId: string | null): void {
     this.db.object(`items/${itemId}`).remove();
     alert("deleted succesfully")
-
   }
   deleteAll(): void {
 
