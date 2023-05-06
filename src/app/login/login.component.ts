@@ -13,7 +13,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 })
 export class LoginComponent implements OnInit {
   issignedin=false;
-  invalidLogin: boolean=false; 
+  invalidLogin: boolean=false;
   email : string = '';
   password : string = '';
   doctors$: Observable<any[]> | undefined;
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(public auth : AuthenticationService,private db: AngularFireDatabase) {
    }
 
-  
+
 
   login() {
 
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     });
     if(this.auth.isloggein!=true){
 
-      this.invalidLogin = false; 
+      this.invalidLogin = false;
 
     }
 
@@ -60,19 +60,19 @@ export class LoginComponent implements OnInit {
   ngOnInit(){
     if(localStorage.getItem('User')!==null){
       this.issignedin=true;
-      
+
     }
     else{
       this.issignedin=false;
     }
   }
-  
+
   async onsignin(email:string,password:string){
      this.auth.register(email,password)
     if(this.auth.isloggein){
       this.issignedin=true;
     }
   }
-  
-  
+
+
 }

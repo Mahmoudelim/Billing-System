@@ -5,7 +5,7 @@ nav {
     align-items: center;
     font-style: normal;
   }
-  
+
   ul {
     margin: 0;
     padding: 0;
@@ -14,23 +14,23 @@ nav {
     align-items: center;
     height: 100%;
   }
-  
+
   li {
     margin: 0 10px;
     font-size: large;
     box-sizing: border-box;
 
   }
-  
+
   a {
     color: green;
     text-decoration: none;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     transition: color 0.3s ease;
     padding-right: 20px;
   }
-  
+
   a:hover {
     color: #ddd;
   }
@@ -39,7 +39,7 @@ nav {
     justify-content: end;
     margin-left: 1590px;
   }
-  
+
   .nav-button a {
     display: block;
     padding: 10px 20px;
@@ -47,15 +47,15 @@ nav {
     color: #fff;
     border-radius: 4px;
     align-items: end;
-    
+
   }
-  
+
   .nav-button a:hover {
     background-color: #0062cc;
   }
-  
+
   .nav-button a:before {
-   
+
     font-weight: 500;
     margin-right: 5px;
   }

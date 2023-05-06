@@ -56,7 +56,7 @@ export class ElectInvoiceComponent implements OnInit{
 
     goToPayment() {
 
-      this.router.navigate(['/WaterPay'], { queryParams: { cost: this.cost,type:'Electricty Payment'} });
+      this.router.navigate(['/WaterPay'], { queryParams: { cost: this.cost,type:'Electricty Payment',fine:this.fineTax} });
 
     }
 

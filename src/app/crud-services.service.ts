@@ -76,6 +76,21 @@ updateElectricityPaymentByEmail(email: string, electrricity: ElectricitPayment) 
     });
   });
 }
+updateUserPreOrPost(email: string, isPostpaid: boolean): void {
+  this.db.list<User>('users', ref => ref.orderByChild('email').equalTo(email))
+    .snapshotChanges()
+    .subscribe(actions => {
+      actions.forEach(action => {
+        const key = action.key!;
+        const user = action.payload.val() as User;
+        if (user.email === email) {
+          user.PreOrpost = isPostpaid;
+          this.db.list('users').update(key, user);
+        }
+      });
+    });
+}
+
 
 getUserByEmail(email: string): Observable<User> {
   return this.db.list<User>('users', ref => ref.orderByChild('email').equalTo(email)).valueChanges().pipe(

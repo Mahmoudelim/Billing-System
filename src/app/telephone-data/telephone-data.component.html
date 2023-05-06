@@ -26,10 +26,9 @@
       <td>{{ billingService.calculateCost(unitCost, user.telephoneUnitsUsed) | currency:'USD':'symbol':'1.2-2' }}</td>
       <td>{{user.InternetCost |currency :'USD':'symbol':'1.2-2'}}</td>
       <td>
-        <ng-container *ngIf="user.PreOrpost; else actualDeadline">{{ 'pre' }}</ng-container>
-        <ng-template #actualDeadline>
+
           <input placeholder="00/0/2023" type="date" [(ngModel)]="user.telephoneDeadline">
-        </ng-template>
+
       </td>
 
 

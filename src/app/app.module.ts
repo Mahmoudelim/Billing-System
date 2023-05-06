@@ -41,7 +41,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CommonModule } from '@angular/common';
 import { PopupComponent } from './popup/popup.component';
 import { WaterPaymentComponent } from './water-payment/water-payment.component';
-
+import { MyitemsComponent } from './myitems/myitems.component';
 import { PaymentHistoryComponent } from './payment-history/payment-history.component';
 import { PhonePostComponent } from './phone-post/phone-post.component';
 
@@ -72,7 +72,7 @@ import { PhonePostComponent } from './phone-post/phone-post.component';
     AddOfferComponent,
     PopupComponent,
     WaterPaymentComponent,
-
+    MyitemsComponent,
     PaymentHistoryComponent,
     PhonePostComponent
   ],

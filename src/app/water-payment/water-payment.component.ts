@@ -24,10 +24,18 @@ export class WaterPaymentComponent implements OnInit {
   cost:number=0;
   exdate:string=''
   type:string=''
+  fine:number=0;
+  totalCost:number=0;
 constructor(public auth:AuthenticationService,private c:CrudServicesService,public route:ActivatedRoute){
   this.userData=this.auth.userData
 }
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.cost =  params['cost'];
+      this.type= params['type'];
+      this.fine=params['fine'];
+      this.totalCost=this.cost+this.fine;
+    });
     this.userData?.subscribe(user => {
       if (user) {
         const userEmail = user.email;
@@ -42,10 +50,7 @@ constructor(public auth:AuthenticationService,private c:CrudServicesService,publ
 }
 }
 });
-this.route.queryParams.subscribe(params => {
-  this.cost = params['cost'];
-  this.type= params['type'];
-});
+
 }
 pay(){
   const currentDate = new Date();
