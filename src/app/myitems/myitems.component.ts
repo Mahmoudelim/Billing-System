@@ -11,7 +11,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   styleUrls: ['./myitems.component.css']
 })
 export class MyitemsComponent {
-  
+
   userData: Observable<firebase.User | null> | undefined;
   items$: Observable<SnapshotAction<any>[]> | undefined;
 

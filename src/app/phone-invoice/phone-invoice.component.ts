@@ -10,6 +10,8 @@ import { PopupService } from '../popup.service';
 import { map, switchMap } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserService } from '../user.service';
+import { User } from '../user';
+import { CrudServicesService } from '../crud-services.service';
 @Component({
   selector: 'app-phone-invoice',
   templateUrl: './phone-invoice.component.html',
@@ -21,9 +23,10 @@ export class PhoneInvoiceComponent {
   ispaidin=false;
   items$: Observable<any[]> | undefined;
   user$: Observable<firebase.User |null>;
-
+  isPostpaid: boolean  | undefined;
+  UserEmail?:string |null ;
   constructor(private router: Router,  private db: AngularFireDatabase,public auth:AuthenticationService,
-    public popupService:PopupService,public afAuth:AngularFireAuth,public userService:UserService) 
+    public popupService:PopupService,public afAuth:AngularFireAuth,public userService:UserService,private crud:CrudServicesService)
   {
     this.userData=this.auth.userData
     this.user$ = afAuth.authState.pipe(
@@ -46,8 +49,9 @@ showPopup = false;
 selectedItem!: item ;
 dataFromFirebase: any;
   //////
-  
+
   ngOnInit() {
+
     this.db
       .list('/items', (ref) =>
         ref.orderByChild('status').equalTo(this.activeTab)
@@ -62,9 +66,9 @@ dataFromFirebase: any;
       });
       this.afAuth.authState.subscribe(user => {
         if (user) {
-          const userEmail = user.email;
-          if (userEmail !== null) { // Check if userEmail is not null
-            this.userService.getUserByEmail(userEmail).subscribe(user => {
+           this.UserEmail = user.email;
+          if (this.UserEmail == null) { // Check if userEmail is not null
+            this.userService.getUserByEmail(this.UserEmail!).subscribe(user => {
               this.user = user;
             });
           }
@@ -88,6 +92,7 @@ dataFromFirebase: any;
     this.popupService.hide();
   }
   setActiveTab(tab: string) {
+
     this.activeTab = tab;
     this.db
       .list('/items', (ref) => ref.orderByChild('status').equalTo(tab))
@@ -95,18 +100,24 @@ dataFromFirebase: any;
       .subscribe((items) => {
         if (tab === 'prepaid') {
           this.prepaidItems = items;
+
+
         } else {
           this.postpaidItems = items;
+          this.isPostpaid=true;
+          this.crud.updateUserPreOrPost(this.UserEmail!,this.isPostpaid);
         }
       });
   }
-  
+
+
+
   selectItem(item: any) {
     const user = firebase.auth().currentUser;
     const email = user?.email;
-  
+
     const query = this.invoicesRef.orderByChild('title').equalTo(item.title);
-  
+
     query.once('value').then(dataSnapshot => {
       let ispaidin = false;
       dataSnapshot.forEach(childSnapshot => {
@@ -115,7 +126,7 @@ dataFromFirebase: any;
           ispaidin = true;
         }
       });
-  
+
       if (ispaidin) {
         alert("you have already paid for this item");
       } else {
@@ -125,7 +136,7 @@ dataFromFirebase: any;
       console.error('Error getting invoices:', error);
     });
   }
-  
-  
-  
+
+
+
 }

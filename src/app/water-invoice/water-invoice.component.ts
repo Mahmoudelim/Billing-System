@@ -61,7 +61,7 @@ export class WaterInvoiceComponent implements OnInit{
 
   goToPayment() {
     //const dialogRef = this._dialog.open();
-    this.router.navigate(['/WaterPay'], { queryParams: { cost: this.cost ,type:'Water Payment'} });
+    this.router.navigate(['/WaterPay'], { queryParams: { cost: this.cost ,type:'Water Payment',fine:this.fineTax} });
 
   }
 

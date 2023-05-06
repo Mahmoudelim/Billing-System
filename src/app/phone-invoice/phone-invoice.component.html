@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li [class.active]="activeTab === 'prepaid'" (click)="setActiveTab('prepaid')">Prepaid</li>
+
       <li [class.active]="activeTab === 'postpaid'" (click)="setActiveTab('postpaid')">Postpaid</li>
     </ul>
   </div>
@@ -31,7 +32,7 @@
            <button (click)="selectItem(item)" *ngIf="(auth.userData | async) as user">Pay</button>        </div>
       </div>
     </div>
-    
+
 
     <div *ngIf="activeTab === 'postpaid'">
       <div class="container">
