@@ -20,6 +20,7 @@ import { AdminsignupComponent } from './Admin/adminsignup/adminsignup.component'
 import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
 import { AddOfferComponent } from './SP/add-offer/add-offer.component';
 import { item } from './Model/item';
+import { MyitemsComponent } from './myitems/myitems.component';
 const routes: Routes = [
 { path:'home', component: HomeComponent },
  { path: 'login', component: LoginComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
  {path:'phone',component:PhoneInvoiceComponent},
  {path: 'forgot-password', component : ForgotPasswordComponent},
  {path:'varify-email',component:VarifyEmailComponent},
+ {path:'myitems',component:MyitemsComponent},
 {path:'adminsignup',component:AdminsignupComponent},
 {path:'adminlogin',component:AdminloginComponent},
 {path:'addsp',component:AddOfferComponent},

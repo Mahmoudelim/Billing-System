@@ -15,6 +15,8 @@ export class CrudServicesService {
  private  electricityPymentRef7=this.db.list('Electricity Payment')
  private  waterPaymentRef=this.db.list('Water Payment')
  private  phonePaymentref=this.db.list('phone payment')
+ private  invoiceref=this.db.list('invoices')
+
   constructor(private db: AngularFireDatabase) { }
   getUsers(): Observable<User[]> {
     return this.db.list<User>('users').valueChanges();
@@ -54,5 +56,8 @@ getElectristyRef(){
   }
   getadminsRef() {
     return this.adminsRef;
+  }
+  getinvoiceRef(){
+    return this.usersRef;
   }
 }

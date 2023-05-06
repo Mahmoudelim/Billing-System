@@ -3,23 +3,32 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Router } from '@angular/router';
 import { item } from '../Model/item';
 import { AuthenticationService } from '../authentication.service';
-import { Observable } from 'rxjs';
+import { Observable, combineLatest, filter } from 'rxjs';
 import firebase from 'firebase/compat/app';
 import {  ActivatedRoute } from '@angular/router';
 import { PopupService } from '../popup.service';
-
+import { map, switchMap } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-phone-invoice',
   templateUrl: './phone-invoice.component.html',
   styleUrls: ['./phone-invoice.component.css']
 })
 export class PhoneInvoiceComponent {
+  user:any=null;
   userData: Observable<firebase.User | null> | undefined;
   ispaidin=false;
+  items$: Observable<any[]> | undefined;
+  user$: Observable<firebase.User |null>;
 
-  constructor(private router: Router,  private db: AngularFireDatabase,public auth:AuthenticationService,public popupService:PopupService) 
+  constructor(private router: Router,  private db: AngularFireDatabase,public auth:AuthenticationService,
+    public popupService:PopupService,public afAuth:AngularFireAuth,public userService:UserService) 
   {
     this.userData=this.auth.userData
+    this.user$ = afAuth.authState.pipe(
+      map(user => user ? firebase.auth().currentUser : null)
+    );
 
   }
   private db2 = firebase.database();
@@ -37,6 +46,7 @@ showPopup = false;
 selectedItem!: item ;
 dataFromFirebase: any;
   //////
+  
   ngOnInit() {
     this.db
       .list('/items', (ref) =>
@@ -50,7 +60,16 @@ dataFromFirebase: any;
           this.postpaidItems = items;
         }
       });
-    
+      this.afAuth.authState.subscribe(user => {
+        if (user) {
+          const userEmail = user.email;
+          if (userEmail !== null) { // Check if userEmail is not null
+            this.userService.getUserByEmail(userEmail).subscribe(user => {
+              this.user = user;
+            });
+          }
+        }
+      });
   }
   openPopup(item: item) {
     this.selectedItem = item;
@@ -106,7 +125,7 @@ dataFromFirebase: any;
       console.error('Error getting invoices:', error);
     });
   }
-  showAlert(s:string) {
-    window.alert(s);
-  }
+  
+  
+  
 }
