@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
         console.log('Login successful');
       } else {
         // User is not an admin, display error message
-        alert('You Are Admin');
       }
     });
     if(this.auth.isloggein!=true){

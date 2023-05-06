@@ -23,7 +23,6 @@ import { item } from './Model/item';
 import { WaterPaymentComponent } from './water-payment/water-payment.component';
 import { PaymentHistoryComponent } from './payment-history/payment-history.component';
 import { PhonePostComponent } from './phone-post/phone-post.component';
-import { MyitemsComponent } from './myitems/myitems.component';
 const routes: Routes = [
 { path:'home', component: HomeComponent },
  { path: 'login', component: LoginComponent },
@@ -43,7 +42,6 @@ const routes: Routes = [
  {path:'phone',component:PhoneInvoiceComponent},
  {path: 'forgot-password', component : ForgotPasswordComponent},
  {path:'varify-email',component:VarifyEmailComponent},
- {path:'myitems',component:MyitemsComponent},
 {path:'adminsignup',component:AdminsignupComponent},
 {path:'adminlogin',component:AdminloginComponent},
 {path:'addsp',component:AddOfferComponent},
