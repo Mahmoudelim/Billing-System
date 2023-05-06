@@ -71,7 +71,7 @@ export class SignupComponent {
     const PhonePayment=new phonePayment(user.email,new Date(10/5/2023),0,0,0,false)
     this.crud.getphonePaymentRef().push(PhonePayment);
     this.UserService.addUser(user);
-    this.router.navigate(['/login']);
+   // this.router.navigate(['/login']);
     }
     else if(!this.registrationForm.valid) {
       console.log("data not valid")

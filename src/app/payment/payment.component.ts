@@ -41,7 +41,7 @@ export class PaymentComponent {
     this.user$ = afAuth.authState.pipe(
       map(user => user ? firebase.auth().currentUser : null)
     );
-
+   
   }
   ngOnInit() {
     // call the function to retrieve the user information

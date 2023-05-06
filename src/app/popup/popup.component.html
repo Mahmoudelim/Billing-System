@@ -1,10 +1,13 @@
 <div class="popup">
-    <h2>{{ selectedItem.title }}</h2>
-    <h2>{{ selectedItem.description }}</h2>
-    <h2>{{ selectedItem.ownername }}</h2>
-    <h2>{{ selectedItem.status }}</h2>
-
-
-    <div>{{ dataFromFirebase }}</div>
-    <button (click)="onClose()">Close</button>
+    <div class="popup-header">
+      <h2 class="popup-title">Title: {{ selectedItem.title }}</h2>
+      <button class="popup-close" (click)="onClose()">X</button>
+    </div>
+    <div class="popup-content">
+      <h2 class="popup-description">{{ selectedItem.description }}</h2>
+      <div class="popup-owner">{{ selectedItem.ownername }}</div>
+      <div class="popup-status">{{ selectedItem.status }}</div>
+      <div class="popup-firebase">{{ dataFromFirebase }}</div>
+    </div>
+  
   </div>

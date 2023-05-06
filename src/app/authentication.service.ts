@@ -59,7 +59,7 @@ export class AuthenticationService {
       this.sucess=true;
       alert('Registration Successful');
       this.sendEmailForVarification(res.user);
-      this.isloggein=false;
+      this.isloggein=true;
       //this.router.navigate(['/login']);
       
     }, err => {

@@ -3,6 +3,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    height: 500px;
+    z-index: 999;
+
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -16,6 +26,41 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  
+  .popup-title {
+    margin: 0;
+  }
+  
+  .popup-close {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .popup-content {
+    margin-top: 20px;
+  }
+  
+  .popup-description {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .popup-owner {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .popup-status {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .popup-firebase {
+    margin-top: 10px;
+    font-size: 14px;
     margin-bottom: 10px;
   }
   

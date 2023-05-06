@@ -3,6 +3,8 @@ import { AppComponent } from '../app.component';
 import { AuthenticationService } from '../authentication.service';
 import { Route } from '@angular/router';
 import { LoadingDialogComponent } from '../loading-dialog/loading-dialog.component';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +16,9 @@ export class LoginComponent implements OnInit {
   invalidLogin: boolean=false; 
   email : string = '';
   password : string = '';
+  doctors$: Observable<any[]> | undefined;
 
-  constructor(public auth : AuthenticationService) {
+  constructor(public auth : AuthenticationService,private db: AngularFireDatabase) {
    }
 
   
@@ -32,10 +35,21 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.auth.login(this.email,this.password);
+    this.db.list('/users').valueChanges().subscribe(users => {
+      const validuser = users.find((user: any) => user.email === this.email);
+      if (validuser) {
+        // User is an admin, allow login
+        this.auth.login(this.email,this.password);
     this.email = '';
     this.password = '';
+        console.log('Login successful');
+      } else {
+        // User is not an admin, display error message
+        alert('You Are Admin');
+      }
+    });
     if(this.auth.isloggein!=true){
+
       this.invalidLogin = false; 
 
     }
