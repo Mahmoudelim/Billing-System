@@ -1,0 +1,24 @@
+<div>
+  <h2>Payment History</h2>
+</div>
+<table>
+  <thead>
+    <tr>
+
+
+      <th>Total Amount</th>
+      <th>Created Date</th>
+      <th>Payment Status</th>
+      <th>Payment Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let payment of paymentHistory">
+      <td>{{ payment.TotalAmount }}</td>
+      <td>{{ payment.createdDate }}</td>
+      <td>{{ payment.paymentStatus }}</td>
+      <td>{{ payment.paymentType }}</td>
+    </tr>
+  </tbody>
+</table>
+

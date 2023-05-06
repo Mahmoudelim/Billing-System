@@ -1,27 +1,26 @@
-import { User } from './../user';
-import { AuthenticationService } from 'src/app/authentication.service';
-import { CrudServicesService } from './../crud-services.service';
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import firebase from 'firebase/compat/app';
-import { UnitCostService } from '../unit-cost.service';
+import { phonePayment } from './../Model/phonePayment';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ElectricitPayment } from '../Model/ElectricitPayment';
+import { AuthenticationService } from '../authentication.service';
+import { CrudServicesService } from '../crud-services.service';
+import { UnitCostService } from '../unit-cost.service';
+import { UserService } from '../user.service';
+import firebase from 'firebase/compat/app';
 @Component({
-  selector: 'app-elect-invoice',
-  templateUrl: './elect-invoice.component.html',
-  styleUrls: ['./elect-invoice.component.css']
+  selector: 'app-phone-post',
+  templateUrl: './phone-post.component.html',
+  styleUrls: ['./phone-post.component.css']
 })
-export class ElectInvoiceComponent implements OnInit{
-
-  //users: User[] = [];
+export class PhonePostComponent {
   unitused:number=0;
   userData: Observable<firebase.User | null> | undefined;
  // electricityPayment: any = {};
   deadline: Date = new Date();
   cost:number=0;
-  fineTax:number=0;
+  InternetCost:number=0;
+  fineTx:number=0;
   constructor(private userService: UserService,private unitCostService: UnitCostService
     ,private router: Router,private crud:CrudServicesService,private auth:AuthenticationService) {
       this.userData=this.auth.userData;
@@ -33,14 +32,15 @@ export class ElectInvoiceComponent implements OnInit{
           const userEmail = user.email;
           if(userEmail){
           // Call the getElectricityPaymentByEmail method to get the user's electricity payment
-          this.crud.getElectricityPaymentByEmail(userEmail).subscribe((electricityPayments: ElectricitPayment[]) => {
-            if (electricityPayments.length > 0) {
-              const electricityPayment = electricityPayments[0];
-              console.log(electricityPayment.Cost); // access the Cost property
-              this.cost=electricityPayment.Cost;
+          this.crud.getPhoenbyEmail(userEmail).subscribe((phone: phonePayment[]) => {
+            if (phone.length > 0) {
+              const electricityPayment = phone[0];
+              console.log(electricityPayment.CostOfUnits); // access the Cost property
+              this.cost=electricityPayment.CostOfUnits;
+              this.InternetCost=electricityPayment.CostOfInternet;
               console.log(electricityPayment.Deadline); // access the Deadline property
               this.deadline=electricityPayment.Deadline;
-              this.fineTax=electricityPayment.fineTax;
+              this.fineTx=electricityPayment.fineTax;
             } else {
               console.log('No electricity payments found for this user.');
             }
@@ -56,7 +56,7 @@ export class ElectInvoiceComponent implements OnInit{
 
     goToPayment() {
 
-      this.router.navigate(['/WaterPay'], { queryParams: { cost: this.cost,type:'Electricty Payment'} });
+      this.router.navigate(['/WaterPay'], { queryParams: { cost: this.cost,type:'phone Payment'} });
 
     }
 

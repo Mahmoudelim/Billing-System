@@ -31,6 +31,7 @@
           <th>Month</th>
           <th>Cost</th>
           <th>Deadline</th>
+          <th>Fine Tax</th>
           <th>Action </th>
         </tr>
       </thead>
@@ -39,6 +40,7 @@
           <td>Last Month</td>
           <td>{{ cost | currency:'USD':'symbol':'1.2-2' }}</td>
           <td>{{ deadline }}</td>
+          <td>{{fineTax}}</td>
           <td><button (click)="goToPayment()">Pay</button></td>
         </tr>
       </tbody>

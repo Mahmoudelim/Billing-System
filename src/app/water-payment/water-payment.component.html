@@ -1,0 +1,39 @@
+<div class="form-container">
+  <div class="form-header">Payment information</div>
+  <form>
+
+
+    <div class="form-input">
+      <label for="email">Email:</label>
+      <div class="email-info">
+        <span>{{ email }}</span>
+
+      </div>
+    </div>
+    <div class="form-input">
+      <label for="creditCardNumber">CreditCardNumber:</label>
+      <div class="credit-info">
+        <span>{{ credit  }}</span>
+      </div>
+    </div>
+    <div class="form-input">
+      <label for="cvv">CVV:</label>
+      <div class="credit-info">
+        <span>{{ cvv  }}</span>
+      </div>
+    </div>
+    <div class="form-input">
+      <label for="expirationDate">expiration Date:</label>
+      <div class="credit-info">
+        <span>{{ exdate  }}</span>
+      </div>
+    </div>
+    <div class="form-input">
+      <label for="cost">Cost Date:</label>
+      <div class="credit-info">
+        <span>{{ cost  }}</span>
+      </div>
+    </div>
+    <button type="submit" (click)="pay()">pay</button>
+  </form>
+</div>

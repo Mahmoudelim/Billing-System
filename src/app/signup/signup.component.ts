@@ -67,7 +67,7 @@ export class SignupComponent {
     const Waterpayment=new WaterPayment(user.email,new Date(10/5/2023),0,0)
     this.crud.getWaterRef().push(Waterpayment);
     const electricitPayment=new ElectricitPayment(user.email,new Date(10/5/2023),0,0)
-    this.crud.getWaterRef().push(electricitPayment);
+    this.crud.getElectristyRef().push(electricitPayment);
     const PhonePayment=new phonePayment(user.email,new Date(10/5/2023),0,0,0,false)
     this.crud.getphonePaymentRef().push(PhonePayment);
     this.UserService.addUser(user);

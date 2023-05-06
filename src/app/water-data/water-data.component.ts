@@ -40,9 +40,12 @@ export class WaterDataComponent implements OnInit {
     for (const user of this.users) {
       const cost = this.billingService.calculateCost(this.unitCost, user.waterUnitsUsed);
       const fineTax= this.getFineTax(user,cost)
+
       // Save the electricity payment to the real-time database
       const payment = new WaterPayment(user.email,user.waterDeadline, cost, fineTax);
       this.CrudServices.updateWaterPaymentByEmail(user.email,payment);
+      alert('Saved successfully!');
+
     }
   }
 

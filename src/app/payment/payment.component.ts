@@ -26,8 +26,8 @@ export class PaymentComponent {
     title: '',
     email: '',
     cost:''
-   
-  }; 
+
+  };
   items: item[] = [];
 
   items$: Observable<item[]> | undefined;
@@ -37,7 +37,7 @@ export class PaymentComponent {
   constructor(private db: AngularFireDatabase,public auth:AuthenticationService, private afAuth: AngularFireAuth,
     private userService: UserService,public route:ActivatedRoute,public invoiceService :InvoiceService
     ) {
-   
+
     this.user$ = afAuth.authState.pipe(
       map(user => user ? firebase.auth().currentUser : null)
     );
@@ -45,7 +45,7 @@ export class PaymentComponent {
   }
   ngOnInit() {
     // call the function to retrieve the user information
-    
+
     this.afAuth.authState.subscribe(user => {
   if (user) {
     const userEmail = user.email;
@@ -66,8 +66,8 @@ this.route.queryParams.subscribe(params => {
   this.newinvoice.email=email;
   this.newinvoice.cost=item2.cost;
   this.email=email;
-  
-  
+
+
 });
 ////search by title
 this.items$ = this.db
@@ -80,17 +80,17 @@ this.items$ = this.db
     });
 
 
-    
+
 }
 addItem( ): void {
 
   const i=new invoice(this.newinvoice.id,this.newinvoice.title,this.newinvoice.cost,this.newinvoice.email);
-  
+
   this.invoiceService.addItem(i);
 
-  
+
 }
 
 
-  
+
 }

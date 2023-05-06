@@ -40,6 +40,10 @@ import { Database, ref, remove } from 'firebase/database';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CommonModule } from '@angular/common';
 import { PopupComponent } from './popup/popup.component';
+import { WaterPaymentComponent } from './water-payment/water-payment.component';
+
+import { PaymentHistoryComponent } from './payment-history/payment-history.component';
+import { PhonePostComponent } from './phone-post/phone-post.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +70,11 @@ import { PopupComponent } from './popup/popup.component';
     AdminsignupComponent,
     AdminloginComponent,
     AddOfferComponent,
-    PopupComponent
+    PopupComponent,
+    WaterPaymentComponent,
+
+    PaymentHistoryComponent,
+    PhonePostComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,7 @@ export class WaterInvoiceComponent implements OnInit{
   userData: Observable<firebase.User | null> | undefined;
   deadline: Date = new Date();
   cost:number=0;
+  fineTax:number=0;
 
   constructor(private userService: UserService, public billingService: BillingService,
     private unitCostService: UnitCostService,private router: Router,private crud:CrudServicesService,
@@ -44,6 +45,7 @@ export class WaterInvoiceComponent implements OnInit{
             this.cost=waterPayment.Cost;
             console.log(waterPayment.Deadline); // access the Deadline property
             this.deadline=waterPayment.Deadline;
+            this.fineTax=waterPayment.fineTax;
           } else {
             console.log('No waterPayment  found for this user.');
           }
@@ -59,7 +61,7 @@ export class WaterInvoiceComponent implements OnInit{
 
   goToPayment() {
     //const dialogRef = this._dialog.open();
-    this.router.navigate(['/pay']);
+    this.router.navigate(['/WaterPay'], { queryParams: { cost: this.cost ,type:'Water Payment'} });
 
   }
 

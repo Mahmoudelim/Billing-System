@@ -47,7 +47,8 @@ export class TelephoneDataComponent implements OnInit {
 
       // Save the electricity payment to the real-time database
       const payment = new phonePayment(user.email,date, cost,user.InternetCost ,fineTax,user.PreOrpost);
-      this.c.getphonePaymentRef().push(payment);
+      this.c.updatePhonePayment(user.email,payment);
+      alert('Saved successfully!');
     }
   }
   getFineTax(user: User, totalCost: number, internetCost: number): number {

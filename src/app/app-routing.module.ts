@@ -20,6 +20,9 @@ import { AdminsignupComponent } from './Admin/adminsignup/adminsignup.component'
 import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
 import { AddOfferComponent } from './SP/add-offer/add-offer.component';
 import { item } from './Model/item';
+import { WaterPaymentComponent } from './water-payment/water-payment.component';
+import { PaymentHistoryComponent } from './payment-history/payment-history.component';
+import { PhonePostComponent } from './phone-post/phone-post.component';
 const routes: Routes = [
 { path:'home', component: HomeComponent },
  { path: 'login', component: LoginComponent },
@@ -28,11 +31,14 @@ const routes: Routes = [
  { path: 'water', component: WaterInvoiceComponent },
  { path: 'slide', component: SlideshowComponent },
  {path:'userhome',component:UserDashboardComponent},
+ {path:'history',component:PaymentHistoryComponent},
+ {path:'phonepost',component:PhonePostComponent},
  {path:'toAdminElectericity',component:ElectristyDataComponent},
  {path:'toAdminDashboard',component:AdminDashboardComponent},
  {path:'toAdminWater',component:WaterDataComponent},
  {path:'toAdminTelephone',component:TelephoneDataComponent},
  {path:'pay',component:PaymentComponent},
+ {path:'WaterPay',component:WaterPaymentComponent},
  {path:'phone',component:PhoneInvoiceComponent},
  {path: 'forgot-password', component : ForgotPasswordComponent},
  {path:'varify-email',component:VarifyEmailComponent},
